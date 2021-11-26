@@ -34,7 +34,14 @@
       .footer, .footer a{
         color: white
       }
+      ul.list{
+      list-style-type: none;
       
+      }
+      ul.list li{
+      border: 0px solid;
+      padding: 5px;
+      }
       
       </style>
 </head>
@@ -46,6 +53,18 @@
     </div>
   <div class="container-fluid">
     <div class="my-3">
+      <ul class="list">
+        <li>Your learning objectives: {learningObjectives}</li>
+        <li>Do they require a rewrite? {rewriteLOs}</li>
+        <li>Your reason for requiring/not requiring a rewrite: {reasonForRewrite}</li>
+        <li>Your assessment summary: {assessmentSummary}</li>
+        <li>The types of assessment your course is currently using: {assessmentTypesInUse}</li>
+        <li>Do you feel there is variation within your assessment? {assessmentVariation}</li>
+        <li>Is your assessment progressive? {progressiveAssessment}</li>
+        <li>Do you feel your assessment measuring what you need it to? {assessmentMeasurement}</li>
+        <li>Your further reasoning as to whether your assessment measures what it needs to: {assessmentMeasurementReasoning}</li>
+        <li>Do you feel your assessment and learning objectives aligned? {assessmentAlignment}</li>
+      </ul>
   Content here
     </div>
   </div>
