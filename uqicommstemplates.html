@@ -21,7 +21,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://uqeassessment.github.io/uqprojects/copyNextDiv.js"></script>
     <script type="text/javascript">
-     window.addEventListener("load", function(){
+     window.addEventListener("load", function pageChange(){
        $('#examPeriodSelect').on('change', function(){
     var examPeriod = $('#examPeriodSelect').val()
     if(examPeriod == "midSem"){
@@ -71,7 +71,7 @@
   </select>
       </p>
     <h5>Enter your name</h5>
-      <p><textarea class="rounded p-2 w-100" rows="1" name="ccNameText" type="text" id="ccNameText" placeholder="Type your name here"></textarea></p>
+      <p><textarea class="rounded p-2 w-100" rows="1" name="ccNameText" type="text" id="ccNameText" placeholder="Type your name here" onchange="pageChange()"></textarea></p>
       <p>
         <a class="text-white btn btn-sm btn-primary rounded text-white copybutton">Copy Template HTML</a>
     </p>
