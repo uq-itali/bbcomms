@@ -4,11 +4,12 @@ window.addEventListener("load", function(){
         var snippet = btn.next('div').html();
         console.log("@GB: snippet = ", snippet);
         copyTextToClipboard(snippet);
-        var originalBtn = $('.copybutton').clone().html()        
+        var originalBtn = $('.copybutton').clone().html()  
+        btn.toggleClass('btn-primary btn-success')
         btn.html('<i class="fa fa-check" aria-hidden="true"></i> Code copied');
         window.setTimeout(function() {
                 btn.html(originalBtn);
-            btn.toggleClass('btn-success btn-light');
+           btn.toggleClass('btn-success btn-primary');
         }, 1500);
         /* Act on the event */
     });
