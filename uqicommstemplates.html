@@ -34,6 +34,8 @@
         $('span#examPeriodSelected').html("<strong>Choose your semester above</strong>")
       }
     });
+       $('#ccNameText').on('change', function(){
+         $('span#ccName').text($('#ccNameText').val())
      });
     </script>
     
@@ -59,17 +61,21 @@
       <div>
         <h3>Initial Communication &ndash; Download and practice</h3>
       </div>
-      <div>
+      <p>
       <p>Select the exam period before copying the template:</p>
       <select id="examPeriodSelect">
     <option value="">Choose Mid-Sem or EoS</option>
     <option value="midSem">Mid-Semester</option>
     <option value="endOfSem">End-of-Semester</option>
   </select>
-      </div>
-      <div>
+      </p>
+    <h5>Enter your name</h5>
+      <p><textarea class="rounded p-2 w-100" rows="1" name="ccNameText" type="text" id="ccNameText" placeholder="Type your name here"></textarea></p>
+      <p>
         <a class="text-white btn btn-sm btn-primary rounded text-white copybutton">Copy Template HTML</a>
+    </p>
          <div>
+           <p>Hello students,</p>
 <p>As per your Electronic Course Profile, you will be completing your&nbsp;<span id="examPeriodSelected"><strong>Choose the exam period above before copying</strong></span>&nbsp;<strong>exam using Inspera</strong>. This will be an <strong>on-campus invigilated exam</strong> using your own laptop. Please refer to your personal timetable for the date, time and venue.</p>
 <p>To ensure you are prepared for your exam, please complete the following steps as soon as possible so you can ensure your laptop is suitable for the exam:</p>
 <h4>Download Safe Exam Browser (SEB)</h4>
@@ -100,6 +106,8 @@
 <p>*As there are limited laptops available, it is important that you determine whether your personal laptop is suitable <strong>as soon as possible</strong>.</p>
 <p>Your course coordinator may also schedule a Practice Exam Session. These workshops will provide you with an opportunity to submit a practice exam in mock exam conditions. It will also be an opportunity for you to ask technical questions you may have about your Inspera exam. Even if you have completed the <u>I</u><strong>nspera Safe Exam Browser Preparation</strong> test, it is recommended that you attend one of these workshops if it is made available to you.&nbsp;</p>
 <p>If you have any questions about using Inspera and Safe Exam Browser, please contact <a href="https://web.library.uq.edu.au/contact-us" target="_blank" rel="noopener" title="UQ AskUs">AskUs</a> for assistance.</p>
+           <p>Thankyou,</p>
+           <p><span id="ccName"></span></p>
       </div>
   </body>
 </html>
