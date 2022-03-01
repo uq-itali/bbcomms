@@ -1,5 +1,5 @@
 window.addEventListener("load", function(){
-        $('.copybutton').on('click', function(event) {
+        $('a.copybutton').on('click', function(event) {
         var btn = $(this);
         var snippet = btn.next('div').html();
         console.log("@GB: snippet = ", snippet);
