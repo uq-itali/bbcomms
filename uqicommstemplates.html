@@ -20,6 +20,15 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://uqeassessment.github.io/uqprojects/copyNextDiv.js"></script>
+    <script type="text/javascript">
+    var examPeriod = $('#examPeriodSelect').val()
+    if(examPeriod == "midSem"){
+      $('span#examPeriodSelected').text("Mid-Semester")
+    }
+      else if(examPeriod == "endOfSem"){
+        $('span#examPeriodSelected').text("End-of-Semester")
+      }
+    </script>
     
   </head>
   <style>
@@ -43,14 +52,16 @@
       <div>
         <h3>Initial Communication &ndash; Download and practice</h3>
       </div>
-        <a class="text-white btn btn-sm btn-primary rounded text-white copybutton">Copy Template HTML</a>
-         <div>
-<p>As per your Electronic Course Profile, you will be completing your&nbsp;
-  <select>
+      <p>Select the exam period before copying the template:</p>
+      <select id="examPeriodSelect">
     <option value="">Choose Mid-Sem or EoS</option>
     <option value="midSem">Mid-Semester</option>
     <option value="endOfSem">End-of-Semester</option>
   </select>
+        <a class="text-white btn btn-sm btn-primary rounded text-white copybutton">Copy Template HTML</a>
+         <div>
+<p>As per your Electronic Course Profile, you will be completing your&nbsp;
+  <span id="examPeriodSelected"></span>
   &nbsp;exam using Inspera. This will be an <strong>on-campus invigilated exam</strong> using your own laptop. Please refer to your personal timetable for the date, time and venue.</p>
 <p>To ensure you are prepared for your exam, please complete the following steps as soon as possible so you can ensure your laptop is suitable for the exam:</p>
 <h4>Download Safe Exam Browser (SEB)</h4>
