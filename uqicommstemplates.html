@@ -21,6 +21,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://uqeassessment.github.io/uqprojects/copyNextDiv.js"></script>
     <script type="text/javascript">
+    $('.#examPeriodSelect').on('click', function(){
     var examPeriod = $('#examPeriodSelect').val()
     if(examPeriod == "midSem"){
       $('span#examPeriodSelected').text("Mid-Semester")
@@ -28,6 +29,7 @@
       else if(examPeriod == "endOfSem"){
         $('span#examPeriodSelected').text("End-of-Semester")
       }
+    });
     </script>
     
   </head>
@@ -60,9 +62,7 @@
   </select>
         <a class="text-white btn btn-sm btn-primary rounded text-white copybutton">Copy Template HTML</a>
          <div>
-<p>As per your Electronic Course Profile, you will be completing your&nbsp;
-  <span id="examPeriodSelected"></span>
-  &nbsp;exam using Inspera. This will be an <strong>on-campus invigilated exam</strong> using your own laptop. Please refer to your personal timetable for the date, time and venue.</p>
+<p>As per your Electronic Course Profile, you will be completing your&nbsp;<span id="examPeriodSelected"></span>&nbsp;exam using Inspera. This will be an <strong>on-campus invigilated exam</strong> using your own laptop. Please refer to your personal timetable for the date, time and venue.</p>
 <p>To ensure you are prepared for your exam, please complete the following steps as soon as possible so you can ensure your laptop is suitable for the exam:</p>
 <h4>Download Safe Exam Browser (SEB)</h4>
 <ol>
