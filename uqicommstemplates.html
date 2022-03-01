@@ -25,10 +25,10 @@
        $('#examPeriodSelect').on('change', function(){
     var examPeriod = $('#examPeriodSelect').val()
     if(examPeriod == "midSem"){
-      $('span#examPeriodSelected').text("Mid-Semester")
+      $('span#examPeriodSelected').html("<strong>Mid-Semester</strong>")
     }
       else if(examPeriod == "endOfSem"){
-        $('span#examPeriodSelected').text("End-of-Semester")
+        $('span#examPeriodSelected').html("<strong>End-of-Semester</strong>")
       }
       else if(examPeriod == ""){
         $('span#examPeriodSelected').html("<strong>Choose your semester above</strong>")
@@ -70,7 +70,7 @@
       <div>
         <a class="text-white btn btn-sm btn-primary rounded text-white copybutton">Copy Template HTML</a>
          <div>
-<p>As per your Electronic Course Profile, you will be completing your&nbsp;<span id="examPeriodSelected"><strong>Choose the exam period above before copying</strong></span>&nbsp;exam using Inspera. This will be an <strong>on-campus invigilated exam</strong> using your own laptop. Please refer to your personal timetable for the date, time and venue.</p>
+<p>As per your Electronic Course Profile, you will be completing your&nbsp;<span id="examPeriodSelected"><strong>Choose the exam period above before copying</strong></span>&nbsp;<strong>exam using Inspera</strong>. This will be an <strong>on-campus invigilated exam</strong> using your own laptop. Please refer to your personal timetable for the date, time and venue.</p>
 <p>To ensure you are prepared for your exam, please complete the following steps as soon as possible so you can ensure your laptop is suitable for the exam:</p>
 <h4>Download Safe Exam Browser (SEB)</h4>
 <ol>
