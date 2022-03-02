@@ -42,20 +42,23 @@
 	     });
 	 $(".nav-link").each(function(){
 		 if($(this).attr("href") == pgurl){
-			 $(this).addClass("active border-bottom border-secondary border-3");
+			 $(this).addClass("active border-bottom border-secondary border-2");
 			 $(this).append('<span class="visually-hidden">(current)</span>');
 			 $(this).attr('aria-current', 'page');
 		 };
 	});
      });
     </script>
-    
+    <style>
+	  .page-header, .footer {
+		  background: linear-gradient(90deg, #51247a 0%, #56247a 60%, #61257d 80%, #962a8b 100%);
+	  }
+	  a.nav-link:hover{
+		  background:#e7e7e7;
+	  }
+	</style>
   </head>
-  <style>
-      .page-header, .footer {
-        background: linear-gradient(90deg, #51247a 0%, #56247a 60%, #61257d 80%, #962a8b 100%);
-      }
-  </style>
+	
   <body>
         <div class="row page-header">
         <div class="col-4">
