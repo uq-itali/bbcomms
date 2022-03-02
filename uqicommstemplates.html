@@ -27,7 +27,8 @@
      //});
       };
      window.addEventListener("load", function(){
-	     var examPeriod = $('#examPeriodSelect').val()
+	     var examPeriod = $('#examPeriodSelect').val();
+	     var pgurl = window.location.href;
 	     $('#examPeriodSelect').on('change', function(){
 		     if(examPeriod == "midSem"){
 			     $('span#examPeriodSelected').html("<strong>Mid-Semester</strong>")
@@ -39,14 +40,11 @@
 			     $('span#examPeriodSelected').html("<strong>Choose your semester above</strong>")
 		     }
 	     });
-       function activeNav() {
-	var pgurl = window.location.href;
 	 $(".nav-link").each(function(){
 		 if($(this).attr("href") == pgurl){
 			 $(this).addClass("active border-bottom border-secondary border-3");
 			 $(this).append('<span class="sr-only">(current)</span>');
 			 $(this).attr('aria-current', 'page');
-	 };
 	});
        };
      });
