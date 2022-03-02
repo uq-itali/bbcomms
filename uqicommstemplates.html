@@ -40,12 +40,12 @@
       }
        });
        function activeNav() {
-	var pgurl = window.location.href.substr(window.location.href.lastIndexOf("/")+1);
+	var pgurl = window.location.href;
 	 $(".nav-link").each(function(){
-		  if($(this).attr("href") == pgurl || $(this).attr("href") == '' ){
-		  $(this).addClass("active border-bottom border-secondary border-3");
-		  $(this).append('<span class="sr-only">(current)</span>');
-      $(this).attr('aria-current', 'page');
+		 if($(this).attr("href") == pgurl{
+		    $(this).addClass("active border-bottom border-secondary border-3");
+		 $(this).append('<span class="sr-only">(current)</span>');
+		 $(this).attr('aria-current', 'page');
 	 };
 	});
 };
@@ -64,21 +64,21 @@
             <img src="https://static.uq.net.au/v11/logos/corporate/uq-lockup-landscape--reversed.svg" class="m-3" />
         </div>
     </div>
-    <ul class="nav justify-content-center bg-white my-3" style="font-family: Roboto, sans-serif; font-size:1.5rem;">
+    <ul class="nav justify-content-center bg-white my-3" style="font-family: Roboto, sans-serif; font-size:1.3rem;font-weight:300;">
   <li class="nav-item">
     <a class="nav-link text-dark" href="https://uqeassessment.github.io/uqprojects/uqicommstemplates.html">Home</a>
   </li>
-        <li class="nav-item text-dark">
-    <a class="nav-link" href="#">ECP information</a>
+        <li class="nav-item">
+    <a class="nav-link text-dark" href="#">ECP information</a>
   </li>
-  <li class="nav-item text-dark">
-    <a class="nav-link" href="#">Closed browser exams</a>
+  <li class="nav-item">
+    <a class="nav-link text-dark" href="#">Closed browser exams</a>
   </li>
-  <li class="nav-item text-dark">
-    <a class="nav-link" href="#">Open browser exams</a>
+  <li class="nav-item">
+    <a class="nav-link text-dark" href="#">Open browser exams</a>
   </li>
-      <li class="nav-item text-dark">
-    <a class="nav-link" href="#">Other assessment</a>
+      <li class="nav-item">
+    <a class="nav-link text-dark" href="#">Other assessment</a>
   </li>
 </ul>
     <div class="container-fluid">
