@@ -38,7 +38,17 @@
       else if(examPeriod == ""){
         $('span#examPeriodSelected').html("<strong>Choose your semester above</strong>")
       }
-    });
+       });
+       function activeNav() {
+	var pgurl = window.location.href.substr(window.location.href.lastIndexOf("/")+1);
+	 $(".nav-link").each(function(){
+		  if($(this).attr("href") == pgurl || $(this).attr("href") == '' ){
+		  $(this).addClass("active border-bottom border-secondary border-3");
+		  $(this).append('<span class="sr-only">(current)</span>');
+      $(this).attr('aria-current', 'page');
+	 };
+	});
+};
      });
     </script>
     
@@ -54,15 +64,21 @@
             <img src="https://static.uq.net.au/v11/logos/corporate/uq-lockup-landscape--reversed.svg" class="m-3" />
         </div>
     </div>
-    <ul class="nav justify-content-center bg-white text-dark" style="font-family: Roboto, sans-serif; font-size:1.3rem;">
+    <ul class="nav justify-content-center bg-white" style="font-family: Roboto, sans-serif; font-size:1.3rem;">
   <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="#">Active</a>
+    <a class="nav-link text-dark" href="https://uqeassessment.github.io/uqprojects/uqicommstemplates.html">Home</a>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
+        <li class="nav-item text-dark">
+    <a class="nav-link" href="#">ECP information</a>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
+  <li class="nav-item text-dark">
+    <a class="nav-link" href="#">Closed browser exams</a>
+  </li>
+  <li class="nav-item text-dark">
+    <a class="nav-link" href="#">Open browser exams</a>
+  </li>
+      <li class="nav-item text-dark">
+    <a class="nav-link" href="#">Other assessment</a>
   </li>
 </ul>
     <div class="container-fluid">
