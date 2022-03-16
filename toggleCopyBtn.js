@@ -1,4 +1,8 @@
-var examPeriod = $('#examPeriodSelect').val();
+window.addEventListener("DOMContentLoaded", function(){
+    var examPeriod = $('#examPeriodSelect').val();
+    let nameInput = document.getElementById('ccName');
+    let nameInputBox = document.getElementById('nameInputBox');
+})
 window.addEventListener("load", function(){
     
 	     $('#examPeriodSelect').on('change', function(){
