@@ -1,4 +1,4 @@
-window.on('load',function(){
+window.addEventListener('load',function(){
     let nameInput = document.getElementById('ccName');
     let nameInputBox = document.getElementById('nameInputBox');
     let examPeriod = $('#examPeriodSelect').val();
