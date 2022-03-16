@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-let nameInput;
+let nameInput = document.getElementById('ccName');
 let nameInputBox = document.getElementById('nameInputBox');
 nameInputBox.addEventListener('input', function getText() {
-    nameInput = nameInputBox.value;
+    nameInput.innerText = nameInputBox.value;
     });
 });
