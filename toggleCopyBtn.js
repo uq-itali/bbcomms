@@ -1,9 +1,10 @@
-var examPeriod = $('#examPeriodSelect').val();
-$('body').change(function(){
-    if(examPeriod != "" && nameInputBox.value != ""){
-    $('#copyTemplateBtn').removeClass('d-none');
-  }
-else{
-    $('#copyTemplateBtn').addClass('d-none');
-}
-});
+window.addEventListener("load", function(){
+        $('body').change(function(){
+                if(examPeriod != "" && nameInputBox.value != ""){
+                        $('#copyTemplateBtn').removeClass('d-none');
+                      }
+                else{
+                    $('#copyTemplateBtn').addClass('d-none');
+                }
+            });
+        });
