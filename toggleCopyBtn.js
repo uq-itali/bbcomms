@@ -1,5 +1,6 @@
+var examPeriod = $('#examPeriodSelect').val();
 window.addEventListener("load", function(){
-    var examPeriod = $('#examPeriodSelect').val();
+    
 	     $('#examPeriodSelect').on('change', function(){
 		     if(examPeriod == "midSem"){
 			     $('span#examPeriodSelected').html("<strong>Mid-Semester</strong>")
