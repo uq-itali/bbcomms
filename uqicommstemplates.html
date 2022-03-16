@@ -24,19 +24,7 @@
     <script src="https://uqeassessment.github.io/uqprojects/toggleCopyBtn.js"></script>
     <script type="text/javascript">
      window.addEventListener("load", function(){
-	     var examPeriod = $('#examPeriodSelect').val();
-	     var pgurl = window.location.href;
-	     $('#examPeriodSelect').on('change', function(){
-		     if(examPeriod == "midSem"){
-			     $('span#examPeriodSelected').html("<strong>Mid-Semester</strong>")
-		     }
-		     else if(examPeriod == "endOfSem"){
-			     $('span#examPeriodSelected').html("<strong>End-of-Semester</strong>")
-		     }
-		     else if(examPeriod == ""){
-			     $('span#examPeriodSelected').html("<strong>Choose your semester above</strong>")
-		     }
-	     });
+      var pgurl = window.location.href;
 	 $(".nav-link").each(function(){
 		 if($(this).attr("href") == pgurl){
 			 $(this).addClass("active border-bottom border-secondary border-2");
