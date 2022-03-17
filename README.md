@@ -1,6 +1,6 @@
 # uqprojects
 <script type="text/javascript">
-  if(window.location.href="https://uqeassessment.github.io/uqprojects"){
-  window.location.href="https://uqeassessment.github.io/uqprojects/home.html"
+  if(window.location.href="https://uqeassessment.github.io/uqcommstemplates"){
+  window.location.href="https://uqeassessment.github.io/uqcommstemplates/home.html"
   }
   </script>
