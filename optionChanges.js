@@ -11,19 +11,21 @@ window.addEventListener('load',function(){
         }
         else if(examPeriod == ''){
             $('span#examPeriodSelected').html("<strong>Choose your semester above</strong>");
-            alert('Please ensure you select an exam period from the dropdown');
-            $('#examPeriodSelect').addClass('border border-danger border-2');
         }
     });
     nameInputBox.addEventListener('input', function getText(){
         nameInput.innerText = nameInputBox.value;
     });
     $('body').change(function(){
+        var examPeriod = document.getElementById('examPeriodSelect').value;
         if(examPeriod != "" && nameInputBox.value != ""){
             $('#copyTemplateBtn').removeClass('d-none');
         }
         else{
             $('#copyTemplateBtn').addClass('d-none');
+            alert('Please ensure you have completed all the necessary fields');
+            $('#examPeriodSelect').toggleClass('border-danger');
+            $('#nameInputBox').toggleClass('');
         }
     });
 });
