@@ -1,16 +1,18 @@
 window.addEventListener('load',function(){
     let nameInput = document.getElementById('ccName');
     let nameInputBox = document.getElementById('nameInputBox');
-    let examPeriod = $('#examPeriodSelect').val();
+    var examPeriod = $('#examPeriodSelect').val();
     $('#examPeriodSelect').on('change', function(){
-        if(examPeriod == "midSem"){
+        if(examPeriod == 'midSem'){
             $('span#examPeriodSelected').html("<strong>Mid-Semester</strong>")
         }
-        else if(examPeriod == "endOfSem"){
+        else if(examPeriod == 'endOfSem'){
             $('span#examPeriodSelected').html("<strong>End-of-Semester</strong>")
         }
-        else if(examPeriod == ""){
-            $('span#examPeriodSelected').html("<strong>Choose your semester above</strong>")
+        else if(examPeriod == ''){
+            $('span#examPeriodSelected').html("<strong>Choose your semester above</strong>");
+            alert('Please ensure you select an exam period from the dropdown');
+            $('#examPeriodSelect').addClass('border border-danger border-2');
         }
     });
     nameInputBox.addEventListener('input', function getText(){
@@ -24,4 +26,4 @@ window.addEventListener('load',function(){
             $('#copyTemplateBtn').addClass('d-none');
         }
     });
-})
+});
