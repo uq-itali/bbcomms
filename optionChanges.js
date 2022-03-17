@@ -1,7 +1,7 @@
 window.addEventListener('load',function(){
     let nameInput = document.getElementById('ccName');
     let nameInputBox = document.getElementById('nameInputBox');
-    var examPeriod = $('#examPeriodSelect').val();
+    var examPeriod = document.getElementById('examPeriodSelect').value;
     $('#examPeriodSelect').change(function(){
         if(examPeriod == 'midSem'){
             $('span#examPeriodSelected').html("<strong>Mid-Semester</strong>")
