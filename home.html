@@ -90,11 +90,72 @@
         <h5>Enter your name</h5>
         <p>Enter your name below as you would like to see it as signing off to students in the announcement.</p>
         <p><input class="rounded p-2 w-25" rows="1" name="nameInputBox" type="text" id="nameInputBox" placeholder="Type your name here"></p>
-        <p><a class="text-white btn btn-sm btn-primary rounded text-white copybutton d-none" id="copyTemplateBtn">Copy
-        Template HTML</a>
-        </p>
-        <h4>Template Preview Below</h4>
-        <div>
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cbt2">Preview template</button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="cbt2" tabindex="-1" role="dialog" aria-labelledby="cbt2" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <a class="text-white btn btn-sm btn-primary rounded text-white copybutton d-none" id="copyTemplateBtn">Copy Template HTML</a>
+                        <div class="templatePreview">
+                            <p>Hello students,</p>
+                            <p>As per your Electronic Course Profile, you will be completing your&nbsp;<span id="examPeriodSelected"><strong>Choose the exam period above before copying</strong></span>&nbsp;<strong>exam
+        using Inspera</strong>. This will be an <strong>on-campus invigilated exam</strong> using your own laptop. Please refer to your personal timetable for the date, time and venue.</p>
+                            <p>To ensure you are prepared for your exam, please complete the following steps as soon as possible so you can ensure your laptop is suitable for the exam:</p>
+                            <h4>Download Safe Exam Browser (SEB)</h4>
+                            <ol>
+                                <li>Go to the <a href="https://web.library.uq.edu.au/library-services/it/assessments-inspera/campus-invigilated-exams-inspera" target="_blank" title="UQ On-campus invigilated exams in Inspera" rel="noopener">On-campus invigilated exams
+          in Inspera</a> page</li>
+                                <li>Click the button to <strong>Download Safe Exam Browser</strong></li>
+                            </ol>
+                            <h4>Complete the Inspera Safe Exam Browser Preparation test</h4>
+                            <ol>
+                                <li>Login to <a href="https://uqi.inspera.com/" target="_blank" title="Inspera" rel="noopener">https://uqi.inspera.com</a> using your student UQ username and password.</li>
+                                <li>Navigate to the <strong>Demo tests</strong> tab on the right</li>
+                                <li>Click on <strong>Inspera Safe Exam Browser Preparation</strong></li>
+                                <li>Read the instructions <strong>carefully</strong> - and <strong>don&rsquo;t forget to write down the password
+          before you start, you need it to exit SEB</strong></li>
+                                <li>Complete the test</li>
+                            </ol>
+                            <p>Your laptop will be <strong>suitable</strong> to complete your exam as long as:</p>
+                            <ul>
+                                <li>you can charge your laptop to 180+ minutes of battery power</li>
+                                <li>you have <a href="https://support.inspera.com/hc/en-us/articles/360018691091-Is-your-Safe-Exam-Browser-Up-To-Date-" target="_blank" rel="noopener" title="Is your Safe Exam Browser up to date for Inspera?">downloaded Safe
+          Exam Browser</a> (SEB)</li>
+                                <li>you have successfully completed the <strong>Inspera Safe Exam Browser Preparationa</strong> test&nbsp;</li>
+                            </ul>
+                            <p>If your laptop <strong>is not suitable</strong>, or you have any technical issues with the above steps, contact
+                                <a href="https://web.library.uq.edu.au/contact-us" target="_blank" rel="noopener">AskUs</a> for assistance. They can assist you with</p>
+                            <ul>
+                                <li>Troubleshooting Safe Exam Browser (SEB)</li>
+                                <li><a href="https://web.library.uq.edu.au/library-services/students/short-term-laptop-loans" target="_blank" title="Borrowing a laptop at UQ" rel="noopener">Borrowing a laptop</a>*</li>
+                                <li><a href="https://my.uq.edu.au/information-and-services/student-support/financial-support/apply-financial-hardship-assistance" target="_blank" title="Applying for financial hardship assistance at UQ" rel="noopener">Applying for
+          financial hardship assistance to loan or purchase a laptop</a></li>
+                            </ul>
+                            <p>*As there are limited laptops available, it is important that you determine whether your personal laptop is suitable <strong>as soon as possible</strong>.</p>
+                            <p>Your course coordinator may also schedule a Practice Exam Session. These workshops will provide you with an opportunity to submit a practice exam in mock exam conditions. It will also be an opportunity for you to ask technical
+                                questions you may have about your Inspera exam. Even if you have completed the <u>I</u><strong>nspera
+        Safe Exam Browser Preparation</strong> test, it is recommended that you attend one of these workshops if it is made available to you.&nbsp;</p>
+                            <p>If you have any questions about using Inspera and Safe Exam Browser, please contact <a href="https://web.library.uq.edu.au/contact-us" target="_blank" rel="noopener" title="UQ AskUs">AskUs</a> for assistance.
+                            </p>
+                            <p>Thankyou,</p>
+                            <p><span id="ccName"></span></p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End template preview-->
+
+
+        <!--
+        <div class="templatePreview">
             <p>Hello students,</p>
             <p>As per your Electronic Course Profile, you will be completing your&nbsp;<span id="examPeriodSelected"><strong>Choose the exam period above before copying</strong></span>&nbsp;<strong>exam
           using Inspera</strong>. This will be an <strong>on-campus invigilated exam</strong> using your own laptop. Please refer to your personal timetable for the date, time and venue.</p>
@@ -138,6 +199,7 @@
             <p>Thankyou,</p>
             <p><span id="ccName"></span></p>
         </div>
+        -->
 </body>
 
 </html>
