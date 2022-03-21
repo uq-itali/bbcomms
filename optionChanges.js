@@ -5,7 +5,7 @@ window.addEventListener('load',function(){
     $('#date1').change(function(){
         var selectedDate = $('#date1').datepicker("getDate");
         var dateOfAsst = document.getElementById('dateSelected1')
-        dateOfAsst = selectedDate
+        dateOfAsst.innerText = selectedDate
     })
     $('#examPeriodSelect').change(function(){
     var examPeriod = document.getElementById('examPeriodSelect').value;
