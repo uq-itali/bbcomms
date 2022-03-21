@@ -3,9 +3,9 @@ window.addEventListener('load',function(){
     let nameInputBox = document.getElementById('nameInputBox');
     
     $('#date1').change(function(){
-        var dateSelected = document.getElementById('date1').value
-        var dateSelectedTest = document.getElementById('dateSelected1')
-        dateSelectedTest.innerText = dateSelected.value
+        var selectedDate = $('#date1').datepicker("getDate");
+        var dateOfAsst = document.getElementById('dateSelected1')
+        dateOfAsst = selectedDate
     })
     $('#examPeriodSelect').change(function(){
     var examPeriod = document.getElementById('examPeriodSelect').value;
@@ -22,16 +22,18 @@ window.addEventListener('load',function(){
     nameInputBox.addEventListener('input', function getText(){
         nameInput.innerText = nameInputBox.value;
     });
-    /* $('body').change(function(){
+    $('body').change(function(){
+        var selectedDate = $('#date1').datepicker("getDate");
         var examPeriod = document.getElementById('examPeriodSelect').value;
-        if(examPeriod != "" && nameInputBox.value != ""){
+        if(examPeriod != "" && nameInputBox.value != "" && selectedDate != ""){
             $('#copyTemplateBtn').removeClass('d-none');
         }
+        /*
        else{
             $('#copyTemplateBtn').addClass('d-none');
             alert('Please ensure you have completed all the necessary fields');
             $('#examPeriodSelect').toggleClass('border-danger');
             $('#nameInputBox').toggleClass('');
-        }
-    });*/
+        }*/
+    });
 });
