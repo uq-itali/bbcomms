@@ -1,20 +1,20 @@
-console.log('beforeConstant')
-const linked1 = new tempusDominus.TempusDominus(document.getElementById('date1'), {
-    display: {
-        sideBySide: true,
-    }
-
-});
-console.log(linked1.viewDate)
-const linked2 = new tempusDominus.TempusDominus(document.getElementById('date2'), {
-    useCurrent: false,
-    display: {
-        sideBySide: true,
-    }
-});
-console.log(linked1.viewDate)
-console.log('afterConst')
 window.addEventListener('load', function() {
+    console.log('beforeConstant')
+    const linked1 = new tempusDominus.TempusDominus(document.getElementById('date1'), {
+        display: {
+            sideBySide: true,
+        }
+
+    });
+    console.log(linked1.viewDate)
+    const linked2 = new tempusDominus.TempusDominus(document.getElementById('date2'), {
+        useCurrent: false,
+        display: {
+            sideBySide: true,
+        }
+    });
+    console.log(linked1.viewDate)
+    console.log('afterConst')
     alert('optionChangesStarted')
     console.log('optionChangesStarted')
     console.log(linked1.viewDate)
