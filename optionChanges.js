@@ -23,7 +23,7 @@ window.addEventListener('load', function() {
     let nameInput = document.getElementById('ccName');
     let nameInputBox = document.getElementById('nameInputBox');
     $('#date1').click(function() {
-        var selectedDate = $('#date1').datepicker("getDate");
+        var selectedDate = linked1.viewDate;
         var dateOfAsst = document.getElementById('dateSelected1')
         dateOfAsst.innerText = selectedDate
     })
