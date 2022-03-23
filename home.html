@@ -23,7 +23,7 @@
     <!--copy template HTML-->
     <script src="https://uqea.github.io/bbcomms/copyNextDiv.js" crossorigin="anonymous"></script>
     <!--run options on the page-->
-    <script src="https://uqea.github.io/bbcomms/optionChanges.js" crossorigin="anonymous"></script>
+    <script src="optionChanges.js"></script>
     <!--Font Awesome-->
     <script src="https://kit.fontawesome.com/3ec1dca8cc.js" crossorigin="anonymous"></script>
     <!-- Tempus Dominus JavaScript -->
@@ -114,19 +114,19 @@
         <p>Please select the date your assessment is due or the date of the exam. This will then calculate the dates you should be posting communications to students in Blackboard. <strong>If your assessment is in the exam
         period</strong>, please select the first day of the exam period for that semester.</p>
         <div class='row'>
-            <div class='col-3'>
+            <div class='col-4'>
                 <label for='date1Input' class='form-label'>From</label>
                 <div class='input-group log-event' id='date1' data-td-target-input='nearest' data-td-target-toggle='nearest'>
-                    <input id='date1Input' type='text' class='form-control' data-td-target='#date1' />
+                    <input id='date1Input' type='text' class='form-control' data-td-target='#date1' placeholder="Choose start date and time" />
                     <span class='input-group-text' data-td-target='#date1' data-td-toggle='datetimepicker'>
              <span class='fas fa-calendar'></span>
                     </span>
                 </div>
             </div>
-            <div class='col-3'>
+            <div class='col-4'>
                 <label for='date2Input' class='form-label'>To</label>
                 <div class='input-group log-event' id='date2' data-td-target-input='nearest' data-td-target-toggle='nearest'>
-                    <input id='date2Input' type='text' class='form-control' data-td-target='#date2' />
+                    <input id='date2Input' type='text' class='form-control' data-td-target='#date2' placeholder="Choose end date and time" />
                     <span class='input-group-text' data-td-target='#date2' data-td-toggle='datetimepicker'>
              <span class='fas fa-calendar'></span>
                     </span>
@@ -135,7 +135,7 @@
         </div>
         <h5 class="mt-3">Select Exam Period</h5>
         <p>Select the exam period before copying the template:</p>
-        <select id="examPeriodSelect">
+        <select id="examPeriodSelect" class="p-2">
       <option value="">Choose Mid-Sem or EoS</option>
       <option value="midSem">Mid-Semester</option>
       <option value="endOfSem">End-of-Semester</option>
@@ -159,7 +159,7 @@
                             <p>Hello students,</p>
                             <p>As per your Electronic Course Profile, you will be completing your&nbsp;<span id="examPeriodSelected"><strong>Choose the exam period above before
                     copying</strong></span>&nbsp;<strong>exam
-                  using Inspera</strong> on <span class="ml-3" id="dateSelected1"></span>. This will be an
+                  using Inspera</strong> on <span class="ml-3 fw-bold" id="dateSelected1"></span>. This will be an
                                 <strong>on-campus invigilated exam</strong> using your own laptop. Please refer to your personal timetable for the date, time and venue.</p>
                             <p>To ensure you are prepared for your exam, please complete the following steps as soon as possible so you can ensure your laptop is suitable for the exam:</p>
                             <h4>Download Safe Exam Browser (SEB)</h4>
@@ -214,6 +214,20 @@
             </div>
         </div>
         <!--End template preview-->
+        <script>
+            const linked1 = new tempusDominus.TempusDominus(document.getElementById('date1'), {
+                useCurrent: false,
+                display: {
+                    sideBySide: true,
+                }
+            });
+            const linked2 = new tempusDominus.TempusDominus(document.getElementById('date2'), {
+                useCurrent: false,
+                display: {
+                    sideBySide: true,
+                }
+            });
+        </script>
 </body>
 
 </html>

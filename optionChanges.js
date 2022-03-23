@@ -1,32 +1,6 @@
 window.addEventListener('load', function() {
-    console.log('beforeConstant')
-    const linked1 = new tempusDominus.TempusDominus(document.getElementById('date1'), {
-        display: {
-            sideBySide: true,
-        }
-
-    });
-    console.log(linked1.viewDate)
-    const linked2 = new tempusDominus.TempusDominus(document.getElementById('date2'), {
-        useCurrent: false,
-        display: {
-            sideBySide: true,
-        }
-    });
-    console.log(linked1.viewDate)
-    console.log('afterConst')
-    alert('optionChangesStarted')
-    console.log('optionChangesStarted')
-    console.log(linked1.viewDate)
-    console.log(linked2.viewDate)
-
     let nameInput = document.getElementById('ccName');
     let nameInputBox = document.getElementById('nameInputBox');
-    $('#date1').click(function() {
-        var selectedDate = linked1.viewDate;
-        var dateOfAsst = document.getElementById('dateSelected1')
-        dateOfAsst.innerText = selectedDate
-    })
     $('#examPeriodSelect').change(function() {
         var examPeriod = document.getElementById('examPeriodSelect').value;
         if (examPeriod == 'midSem') {
@@ -53,19 +27,22 @@ window.addEventListener('load', function() {
             $('#examPeriodSelect').toggleClass('border-danger');
             $('#nameInputBox').toggleClass('');
         }*/
-        $('#date1').change(function() {
+
+    });
+    $('#date1, #date2').click(function() {
+        $('.td-half').click(function() {
             var startDate = moment(linked1.viewDate).format('LLL');
             console.log(startDate);
-            var endDate = moment(linked1.viewDate).format('LLL')
-            console.log(endDate);
+            var endTime = moment(linked2.viewDate).format('LT')
+            console.log(endTime);
             var lastAnnouncement = moment(linked1.viewDate).subtract(3, 'day').format('LLL');
             console.log(lastAnnouncement);
             var oneWeekOut = moment(linked1.viewDate).subtract(7, 'day').format('LLL');
             console.log(oneWeekOut);
             var twoWeeksOut = moment(linked1.viewDate).subtract(14, 'day').format('LLL');
             console.log(twoWeeksOut);
+            var dateOfAsst = document.getElementById('dateSelected1');
+            dateOfAsst.innerText = startDate + '-' + endTime
         });
     });
-    alert('optionChangesFinished')
-    console.log('optionChangesFinished')
 });
