@@ -19,6 +19,7 @@ window.addEventListener('load', function() {
     console.log('optionChangesStarted')
     console.log(linked1.viewDate)
     console.log(linked2.viewDate)
+
     let nameInput = document.getElementById('ccName');
     let nameInputBox = document.getElementById('nameInputBox');
     $('#date1').click(function() {
@@ -40,7 +41,7 @@ window.addEventListener('load', function() {
         nameInput.innerText = nameInputBox.value;
     });
     $('body').change(function() {
-        var selectedDate = $('#date1').datepicker("getDate");
+        var selectedDate = linked1.viewDate;
         var examPeriod = document.getElementById('examPeriodSelect').value;
         if (examPeriod != "" && nameInputBox.value != "" && selectedDate != "") {
             $('#copyTemplateBtn').removeClass('d-none');
