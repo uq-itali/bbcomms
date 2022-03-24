@@ -1,6 +1,11 @@
 window.addEventListener('load', function() {
-    let nameInput = document.getElementById('ccName');
+    //  let nameOutput = document.getElementsByClassName('ccName');
     let nameInputBox = document.getElementById('nameInputBox');
+    //  let courseCodeOutput = document.getElementById('courseCodeOutput');
+    let courseCodeInputBox = document.getElementById('courseCode');
+    //let courseTitleOutput = document.getElementById('courseTitleOutput');
+    let courseTitleInputBox = document.getElementById('courseTitle');
+    let examSelected = document.getElementById('exam')
     $('#examPeriodSelect').change(function() {
         var examPeriod = document.getElementById('examPeriodSelect').value;
         if (examPeriod == 'midSem') {
@@ -11,14 +16,30 @@ window.addEventListener('load', function() {
             $('span#examPeriodSelected').html("<strong>Choose your semester above</strong>");
         }
     });
-    nameInputBox.addEventListener('input', function getText() {
-        nameInput.innerText = nameInputBox.value;
+    nameInputBox.addEventListener('input', function getCCName() {
+        $('.ccName').text(nameInputBox.value)
+    });
+    courseCodeInputBox.addEventListener('input', function getCourseCode() {
+        $('.courseCodeOutput').text(courseCodeInputBox.value)
+    });
+    courseTitleInputBox.addEventListener('input', function getCourseTitle() {
+        $('.courseTitleOutput').text(courseTitleInputBox.value)
+    });
+    $(examSelected).change(function() {
+        if (examSelected.checked == true) {
+            $('.ifExamSelected').removeClass('d-none');
+        } else {
+            $('.ifExamSelected').addClass('d-none');
+        }
     });
     $('body').change(function() {
         var selectedDate = linked1.viewDate;
         var examPeriod = document.getElementById('examPeriodSelect').value;
-        if (examPeriod != "" && nameInputBox.value != "" && selectedDate != "") {
-            $('#copyTemplateBtn').removeClass('d-none');
+        if (courseCodeInputBox.value != "" && courseTitleInputBox.value != "" && nameInputBox.value != "" && selectedDate != "") {
+            $('#copyTemplateBtn, #ecpSuggestedTextCard, #initialBBCommsTextCard').removeClass('d-none');
+            //$('#ecpSuggestedTextCard').removeClass('d-none');
+        } else {
+            $('#copyTemplateBtn, #ecpSuggestedTextCard, #initialBBCommsTextCard').addClass('d-none');
         }
         /*
        else{
@@ -42,7 +63,7 @@ window.addEventListener('load', function() {
             var twoWeeksOut = moment(linked1.viewDate).subtract(14, 'day').format('LLL');
             console.log(twoWeeksOut);
             var dateOfAsst = document.getElementById('dateSelected1');
-            dateOfAsst.innerText = startDate + '-' + endTime
+            //  dateOfAsst.innerText = startDate + '-' + endTime
         });
     });
 });
