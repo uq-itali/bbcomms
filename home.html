@@ -109,81 +109,133 @@
             <a class="nav-link text-dark py-3" href="#">Other assessment</a>
         </li>
     </ul>
-    <div class="container-fluid">
+    <div class="container-fluid w-100">
         <h5>Assessment type</h5>
         <p>Please choose your assessment type from the list below. <strong>Please ensure you only choose the assessments that will run in Inspera.</strong></p>
-        <div class="form-check">
+        <div class="form-check form-check-inline">
             <input class="form-check-input" type="checkbox" value="quiz" id="quiz">
             <label class="form-check-label" for="quiz">Quiz</label>
         </div>
-        <div class="form-check">
+        <div class="form-check form-check-inline">
             <input class="form-check-input" type="checkbox" value="groupTask" id="groupTask">
             <label class="form-check-label" for="groupTask">Group task</label>
         </div>
-        <div class="form-check">
+        <div class="form-check form-check-inline">
             <input class="form-check-input" type="checkbox" value="caseStudy" id="caseStudy">
             <label class="form-check-label" for="caseStudy">Case study</label>
         </div>
-        <div class="form-check">
+        <div class="form-check form-check-inline">
             <input class="form-check-input" type="checkbox" value="avPresentation" id="avPresentation">
             <label class="form-check-label" for="avPresentation">Audio/Video presentation</label>
         </div>
-        <div class="form-check">
+        <div class="form-check form-check-inline">
             <input class="form-check-input" type="checkbox" value="exam" id="exam">
             <label class="form-check-label" for="exam">Exam</label>
         </div>
-        <h5 class="mt-3">Date of assessment 1</h5>
-        <p>Please select the date your assessment is due or the date of your exam. This will then calculate the dates you should be posting communications to students in Blackboard. <strong>If your assessment is in the exam period</strong>, please select
-            the first day of the exam period for that semester.</p>
-        <div class='row'>
-            <div class='col-3'>
-                <label for='date1Input' class='form-label'>From</label>
-                <div class='input-group log-event' id='date1' data-td-target-input='nearest' data-td-target-toggle='nearest'>
-                    <input id='date1Input' type='text' class='form-control' data-td-target='#date1' placeholder="Choose start date and time" />
-                    <span class='input-group-text' data-td-target='#date1' data-td-toggle='datetimepicker'>
-             <span class='fas fa-calendar'></span>
-                    </span>
+        <div class="d-none ifExamSelected" id="examTypeAndPeriod">
+            <h5 class="mt-3">Select Exam Period</h5>
+            <p>Select the exam period. If you have both a Mid-Semester and End-of-Semester exam, select <strong>Both Exam Periods</strong></p>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="examPeriod" value="midSem" id="midSem" checked>
+                <label class="form-check-label" for="midSem">Mid-Semester</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="examPeriod" value="endOfSem" id="endOfSem">
+                <label class="form-check-label" for="endOfSem">End-of-Semester</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="examPeriod" value="bothExamPeriods" id="bothExamPeriods">
+                <label class="form-check-label" for="bothExamPeriods">Both Exam Periods</label>
+            </div>
+            <h5 class="mt-3">Central or School Based</h5>
+            <p>Choose whether your exam is a centrally run exam or school based exam</p>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="examType" value="centralExam" id="centralExam">
+                <label class="form-check-label" for="centralExam">Centrally run</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="examType" value="schoolBasedExam" id="schoolBasedExam">
+                <label class="form-check-label" for="schoolBasedExam">School-based exam</label>
+            </div>
+            <div class="twoExams d-none">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="examType" value="oneOfEachExam" id="oneOfEachExam">
+                    <label class="form-check-label" for="oneOfEachExam">Mid-Semester School-based exam + End-of-Semester Central Exam</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="examType" value="bothCentral" id="bothCentral">
+                    <label class="form-check-label" for="bothCentral">Both Central Exams</label>
                 </div>
             </div>
-            <div class='col-3'>
-                <label for='date2Input' class='form-label'>To</label>
-                <div class='input-group log-event' id='date2' data-td-target-input='nearest' data-td-target-toggle='nearest'>
-                    <input id='date2Input' type='text' class='form-control' data-td-target='#date2' placeholder="Choose end date and time" />
-                    <span class='input-group-text' data-td-target='#date2' data-td-toggle='datetimepicker'>
+            <!--<select id="examPeriodSelect" class="p-2">
+              <option value="">Choose Mid-Sem or EoS</option>
+              <option value="midSem">Mid-Semester</option>
+              <option value="endOfSem">End-of-Semester</option>
+            </select>-->
+            <h5 class="mt-3">Invigilated or Non-Invigilated</h5>
+            <p>Choose whether your exam is a invigilated or non-invigilated</p>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" name="invigilation" type="radio" value="invigilated" id="invigilated">
+                <label class="form-check-label" for="invigilated">Invigilated</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" name="invigilation" type="radio" value="nonInvigilated" id="nonInvigilated">
+                <label class="form-check-label" for="nonInvigilated">Non-Invigilated</label>
+            </div>
+            <h5 class="mt-3">Closed Broswer or Open Browser</h5>
+            <p>Choose whether your exam will use Safe Exam Browser/Inspera Exam Portal or will not lock down student devices</p>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" name="browserType" type="radio" value="closedBrowser" id="closedBrowser">
+                <label class="form-check-label" for="closedBrowser">Closed Browser</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" name="browserType" type="radio" value="openBrowser" id="openBrowser">
+                <label class="form-check-label" for="openBrowser">Open Browser</label>
+            </div>
+        </div>
+        <div class="d-none ifExamSelected">
+            <h5 class="mt-3">Date and Time of Exam</h5>
+            <p>Please select the date your assessment is due or the date of your exam. This will then calculate the dates you should be posting communications to students in Blackboard. <strong>If your assessment is in the exam period</strong>, please select
+                the checkbox to the right.</p>
+            <div class='row'>
+                <div class='col-3'>
+                    <label for='date1Input' class='form-label'>From</label>
+                    <div class='input-group log-event' id='date1' data-td-target-input='nearest' data-td-target-toggle='nearest'>
+                        <input id='date1Input' type='text' class='form-control' data-td-target='#date1' placeholder="Choose start date and time" />
+                        <span class='input-group-text' data-td-target='#date1' data-td-toggle='datetimepicker'>
              <span class='fas fa-calendar'></span>
-                    </span>
+                        </span>
+                    </div>
                 </div>
-            </div>
-            <div class="col-1 my-auto text-center">
-                <h5 class="text-danger fw-bold ifExamSelected d-none">OR</h5>
-            </div>
-            <div class="col-2 my-auto border border-danger border-2 p-2 text-center rounded ifExamSelected d-none">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="examPeriodOverride" id="examPeriodOverride">
-                    <label class="form-check-label" for="examPeriodOverride">My exam will run in the exam period</label>
+                <div class='col-3'>
+                    <label for='date2Input' class='form-label'>To</label>
+                    <div class='input-group log-event' id='date2' data-td-target-input='nearest' data-td-target-toggle='nearest'>
+                        <input id='date2Input' type='text' class='form-control' data-td-target='#date2' placeholder="Choose end date and time" />
+                        <span class='input-group-text' data-td-target='#date2' data-td-toggle='datetimepicker'>
+             <span class='fas fa-calendar'></span>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-1 my-auto text-center">
+                    <h5 class="text-danger fw-bold d-none">OR</h5>
+                </div>
+                <div class="col-2 my-auto border border-danger border-2 p-2 text-center rounded d-none">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="examPeriodOverride" id="examPeriodOverride">
+                        <label class="form-check-label" for="examPeriodOverride">My exam will run in the exam period</label>
+                    </div>
                 </div>
             </div>
         </div>
         <h5 class="mt-3">Enter your name</h5>
         <p>Enter your name below as you would like to see it as signing off to students in the announcement.</p>
         <p><input class="rounded p-2 w-25" rows="1" name="nameInputBox" type="text" id="nameInputBox" placeholder="Type your name here"></p>
-
         <h5 class="mt-3">Enter your Course Code</h5>
         <p>Enter your course code, e.g. ABCD1234. This input will automatically convert your input to uppercase. You do not need to turn caps lock on or press shift.</p>
         <p><input oninput="this.value = this.value.toUpperCase()" maxlength="8" minlength="8" class="rounded p-2 w-25" rows="1" name="courseCode" type="text" id="courseCode" placeholder="Type your course code here e.g. ABCD1234"></p>
-
         <h5 class="mt-3">Enter your Course Title</h5>
         <p>Enter your course title.</p>
         <p><input class="rounded p-2 w-25" rows="1" name="courseTitle" type="text" id="courseTitle" placeholder="Type your course title here"></p>
-
-        <h5 class="mt-3">Select Exam Period</h5>
-        <p>Select the exam period before copying the template:</p>
-        <select id="examPeriodSelect" class="p-2">
-      <option value="">Choose Mid-Sem or EoS</option>
-      <option value="midSem">Mid-Semester</option>
-      <option value="endOfSem">End-of-Semester</option>
-    </select>
-
         <div class="row row-cols-1 row-cols-md-3 g-4">
             <div class="col d-none" id="ecpSuggestedTextCard">
                 <div class="card h-100">
@@ -269,21 +321,22 @@
                 </div>
             </div>
         </div>
-        <!--End Initial Bb Announcement Modal-->
-        <script>
-            const linked1 = new tempusDominus.TempusDominus(document.getElementById('date1'), {
-                useCurrent: false,
-                display: {
-                    sideBySide: true,
-                }
-            });
-            const linked2 = new tempusDominus.TempusDominus(document.getElementById('date2'), {
-                useCurrent: false,
-                display: {
-                    sideBySide: true,
-                }
-            });
-        </script>
+    </div>
+    <!--End Initial Bb Announcement Modal-->
+    <script>
+        const linked1 = new tempusDominus.TempusDominus(document.getElementById('date1'), {
+            useCurrent: false,
+            display: {
+                sideBySide: true,
+            }
+        });
+        const linked2 = new tempusDominus.TempusDominus(document.getElementById('date2'), {
+            useCurrent: false,
+            display: {
+                sideBySide: true,
+            }
+        });
+    </script>
 </body>
 
 </html>
