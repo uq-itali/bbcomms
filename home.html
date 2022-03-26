@@ -87,7 +87,7 @@
 </head>
 
 <body>
-    <div class="row page-header">
+    <div class="page-header">
         <div class="col-4">
             <img src="https://static.uq.net.au/v11/logos/corporate/uq-lockup-landscape--reversed.svg" class="m-3" />
         </div>
@@ -113,28 +113,46 @@
         <h5>Assessment type</h5>
         <p>Please choose your assessment type from the list below. <strong>Please ensure you only choose the assessments that will run in Inspera.</strong></p>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" value="quiz" id="quiz">
+            <input class="form-check-input" name="assessmentTypes" type="checkbox" value="Audio/Video Presentation" id="avPresentation">
+            <label class="form-check-label" for="avPresentation">Audio/Video Presentation</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" name="assessmentTypes" type="checkbox" value="Quiz" id="quiz">
             <label class="form-check-label" for="quiz">Quiz</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" value="groupTask" id="groupTask">
+            <input class="form-check-input" name="assessmentTypes" type="checkbox" value="Group Task" id="groupTask">
             <label class="form-check-label" for="groupTask">Group task</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" value="caseStudy" id="caseStudy">
+            <input class="form-check-input" name="assessmentTypes" type="checkbox" value="Case Study" id="caseStudy">
             <label class="form-check-label" for="caseStudy">Case study</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" value="avPresentation" id="avPresentation">
-            <label class="form-check-label" for="avPresentation">Audio/Video presentation</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" value="exam" id="exam">
+            <input class="form-check-input" name="assessmentTypes" type="checkbox" value="Exam" id="exam">
             <label class="form-check-label" for="exam">Exam</label>
         </div>
+        <h5 class="mt-3">Enter your name</h5>
+        <p>Enter your name below as you would like to see it as signing off to students in the announcement.</p>
+        <p><input class="rounded p-2 w-25" rows="1" name="nameInputBox" type="text" id="nameInputBox" placeholder="Type your name here"></p>
+        <h5 class="mt-3">Enter your Course Code</h5>
+        <p>Enter your course code, e.g. ABCD1234. This input will automatically convert your input to uppercase. You do not need to turn caps lock on or press shift.</p>
+        <p><input oninput="this.value = this.value.toUpperCase()" maxlength="8" minlength="8" class="rounded p-2 w-25" rows="1" name="courseCode" type="text" id="courseCode" placeholder="Type your course code here e.g. ABCD1234"></p>
+        <h5 class="mt-3">Enter your Course Title</h5>
+        <p>Enter your course title.</p>
+        <p><input class="rounded p-2 w-25" rows="1" name="courseTitle" type="text" id="courseTitle" placeholder="Type your course title here"></p>
+        <h5 class="mt-3">Blackboard Course Assessment Area Link</h5>
+        <p>Paste the URL for the Assessment Area in your Blackboard course.</p>
+        <p><input class="rounded p-2 w-75" rows="1" name="bbAssessmentAreaLink" type="text" id="bbAssessmentAreaLink" placeholder="Paste your course assessment area link here"></p>
         <div class="d-none ifExamSelected" id="examTypeAndPeriod">
             <h5 class="mt-3">Select Exam Period</h5>
             <p>Select the exam period. If you have both a Mid-Semester and End-of-Semester exam, select <strong>Both Exam Periods</strong></p>
+            <!--<select id="examPeriodSelect" class="p-2">
+              <option type="radio" value="">Choose Mid-Sem or EoS</option>
+              <option type="radio" value="midSem">Mid-Semester</option>
+              <option type="radio" value="endOfSem">End-of-Semester</option>
+              <option type="radio" value="bothExamPeriods">Both Exam Periods</option>
+            </select>-->
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="examPeriod" value="midSem" id="midSem" checked>
                 <label class="form-check-label" for="midSem">Mid-Semester</label>
@@ -167,11 +185,7 @@
                     <label class="form-check-label" for="bothCentral">Both Central Exams</label>
                 </div>
             </div>
-            <!--<select id="examPeriodSelect" class="p-2">
-              <option value="">Choose Mid-Sem or EoS</option>
-              <option value="midSem">Mid-Semester</option>
-              <option value="endOfSem">End-of-Semester</option>
-            </select>-->
+
             <h5 class="mt-3">Invigilated or Non-Invigilated</h5>
             <p>Choose whether your exam is a invigilated or non-invigilated</p>
             <div class="form-check form-check-inline">
@@ -227,15 +241,7 @@
                 </div>
             </div>
         </div>
-        <h5 class="mt-3">Enter your name</h5>
-        <p>Enter your name below as you would like to see it as signing off to students in the announcement.</p>
-        <p><input class="rounded p-2 w-25" rows="1" name="nameInputBox" type="text" id="nameInputBox" placeholder="Type your name here"></p>
-        <h5 class="mt-3">Enter your Course Code</h5>
-        <p>Enter your course code, e.g. ABCD1234. This input will automatically convert your input to uppercase. You do not need to turn caps lock on or press shift.</p>
-        <p><input oninput="this.value = this.value.toUpperCase()" maxlength="8" minlength="8" class="rounded p-2 w-25" rows="1" name="courseCode" type="text" id="courseCode" placeholder="Type your course code here e.g. ABCD1234"></p>
-        <h5 class="mt-3">Enter your Course Title</h5>
-        <p>Enter your course title.</p>
-        <p><input class="rounded p-2 w-25" rows="1" name="courseTitle" type="text" id="courseTitle" placeholder="Type your course title here"></p>
+
         <div class="row row-cols-1 row-cols-md-3 g-4">
             <div class="col d-none" id="ecpSuggestedTextCard">
                 <div class="card h-100">
@@ -284,9 +290,9 @@
                         <div>
                             <p>UQ is currently rolling out a new assessment tool, Inspera Assessment. Inspera Assessment provides additional functionality to complement the existing suite of digital learning tools at UQ with a greater range of question types,
                                 accessibility provisions, and non-English languages.</p>
-                            <p>Inspera Assessment may be used in <span class="courseCodeOutput"></span> - <span class="courseTitleOutput"></span>. The [assessment item(s)] could include a [non-invigilated/invigilated on-campus] digital [assessment/exam/quiz]
-                                and students in this course will complete and submit this using their own device (or backup device provided by the university where necessary). Details about Inspera Assessment including an introduction to Inspera functionality
-                                and where to go for support are available on the following link - <a href="https://web.library.uq.edu.au/library-services/it/assessments-inspera" target="_blank" title="Inspera Assessment Support Website">https://web.library.uq.edu.au/library-services/it/assessments-inspera</a>.
+                            <p>Inspera Assessment may be used in <span class="courseCodeOutput"></span> - <span class="courseTitleOutput"></span>. The assessment item(s) could include a Digital <span class="assessmentTypeListOr"></span> and students in this
+                                course will complete and submit this using their own device (or backup device provided by the university where necessary). Details about Inspera Assessment including an introduction to Inspera functionality and where to
+                                go for support are available on the following link - <a href="https://web.library.uq.edu.au/library-services/it/assessments-inspera" target="_blank" title="Inspera Assessment Support Website">https://web.library.uq.edu.au/library-services/it/assessments-inspera</a>.
                                 Further information will be provided in the Blackboard site for this course in Week 1 of the semester, and practice opportunities will be available throughout the semester.</p>
                             <p>Thankyou,</p>
                             <p><span class="ccName"></span></p>
@@ -308,9 +314,11 @@
           Template HTML</a>
                         <div>
                             <p>Hello <span class="courseCodeOutput"></span> students,</p>
-                            <p><span class="courseCodeOutput"></span> - <span class="courseTitleOutput"></span> has been selected as a course in the Inspera Assessment rollout. The [assessment item(s)] will be a digital [assessment/exam/quiz] and you will
-                                complete [this assessment / these assessments] using your own device.</p>
-                            <p>Please refer to [insert Assessment area link] for further information and support on the use of Inspera.</p>
+                            <p><span class="courseCodeOutput"></span> - <span class="courseTitleOutput"></span> has been selected as a course in the Inspera Assessment rollout. The assessment item(s) will be a digital <span class="assessmentTypesSelected"></span>,
+                                which you will complete using your own device.</p>
+                            <p>Please refer to the <a class="bbAssessmentArea" href="" title="Blackboard Course Assessment Area"><span class="courseCodeOutput"></span> Blackboard Course Assessment area</a> for further information and support on the use of
+                                Inspera.
+                            </p>
                             <p>Thankyou,</p>
                             <p><span class="ccName"></span></p>
                         </div>
