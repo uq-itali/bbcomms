@@ -263,11 +263,13 @@
                     </div>
                 </div>
             </div>
-            <div class="col d-none">
+            <div class="col d-none" id="weblinkToInsperaTextCard">
                 <div class="card h-100">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+                        <h5 class="card-title">Weblink to Inspera Assessment Information</h5>
+                        <p class="card-text">The title, URL and description for a weblink you should place in your Blackboard course under a designated Assessment area.</p>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#weblinkToInsperaTemplate">Preview
+                          template</button>
                     </div>
                 </div>
             </div>
@@ -329,8 +331,29 @@
                 </div>
             </div>
         </div>
+        <!--End Initial Bb Announcement Modal-->
+        <!--Web Link to Inspera in your Blackboard Assessment Section-->
+        <div class="modal fade" id="weblinkToInsperaTemplate" tabindex="-1" role="dialog" aria-labelledby="weblinkToInsperaTemplate" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <p>Weblink name: <span id="weblinkName">Inspera Assessment Information</span> <button class="btn btn-sm btn-primary copyPrevSpan">Copy Weblink Name</button></p>
+                        <p>URL: <span id="weblinkURL">https://web.library.uq.edu.au/library-services/it/assessments-inspera</span> <button class="btn btn-sm btn-primary copyPrevSpan">Copy Weblink URL</button></p>
+                        <p>In the description enter the following:</p>
+                        <a class="text-white btn btn-sm btn-primary rounded text-white copybutton d-none mb-3" id="copyTemplateBtn">Copy Template HTML</a>
+                        <p>This web pages contains information for students such as:</p>
+                        <ul>
+                            <li>How to access Inspera</li>
+                            <li>Device requirements</li>
+                            <li>Familiarisation opportunities</li>
+                            <li>Submitting assessment and viewing feedback</li>
+                            <li>Access to the Student Laptop Scheme and short-term laptop loans.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <!--End Initial Bb Announcement Modal-->
     <script>
         const linked1 = new tempusDominus.TempusDominus(document.getElementById('date1'), {
             useCurrent: false,
@@ -344,6 +367,7 @@
                 sideBySide: true,
             }
         });
+        //Copy previous span script
     </script>
 </body>
 

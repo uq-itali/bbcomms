@@ -1,25 +1,44 @@
 window.addEventListener('load', function() {
     $('input[name="assessmentTypes"]').on('click', function() {
-            var assessmentTypesArray = []
-            var assessmentTypesChecked = document.querySelectorAll('input[name="assessmentTypes"]:checked')
-            for (var i = 0; i < assessmentTypesChecked.length; i++) {
-                assessmentTypesArray.push(assessmentTypesChecked[i].value)
-            }
-            var assessmentTypeArrayToString = assessmentTypesArray.toString().replaceAll(',', ', ');
-            console.log(assessmentTypeArrayToString);
-            if (assessmentTypeArrayToString.indexOf("Exam") >= 0) {
-                var assessmentTypeArrayFinalList = assessmentTypeArrayToString.replace(/,(?=[^,]+$)/, ' and an')
-                var assessmentTypeListOr = assessmentTypeArrayToString.replace(/,(?=[^,]+$)/, ' or an')
-            } else {
-                var assessmentTypeArrayFinalList = assessmentTypeArrayToString.replace(/,(?=[^,]+$)/, ' and')
-                var assessmentTypeListOr = assessmentTypeArrayToString.replace(/,(?=[^,]+$)/, ' or')
-            }
-            console.log(assessmentTypeListOr);
-            console.log(assessmentTypeArrayFinalList);
-            $('.assessmentTypeListOr').text(assessmentTypeListOr)
-            $('.assessmentTypesSelected').text(assessmentTypeArrayFinalList)
-        })
-        //  let nameOutput = document.getElementsByClassName('ccName');
+        var assessmentTypesArray = []
+        var assessmentTypesChecked = document.querySelectorAll('input[name="assessmentTypes"]:checked')
+        for (var i = 0; i < assessmentTypesChecked.length; i++) {
+            assessmentTypesArray.push(assessmentTypesChecked[i].value)
+        }
+        var assessmentTypeArrayToString = assessmentTypesArray.toString().replaceAll(',', ', ');
+        console.log(assessmentTypeArrayToString);
+        if (assessmentTypeArrayToString.indexOf("Exam") >= 0) {
+            var assessmentTypeArrayFinalList = assessmentTypeArrayToString.replace(/,(?=[^,]+$)/, ' and an')
+            var assessmentTypeListOr = assessmentTypeArrayToString.replace(/,(?=[^,]+$)/, ' or an')
+        } else {
+            var assessmentTypeArrayFinalList = assessmentTypeArrayToString.replace(/,(?=[^,]+$)/, ' and')
+            var assessmentTypeListOr = assessmentTypeArrayToString.replace(/,(?=[^,]+$)/, ' or')
+        }
+        console.log(assessmentTypeListOr);
+        console.log(assessmentTypeArrayFinalList);
+        $('.assessmentTypeListOr').text(assessmentTypeListOr)
+        $('.assessmentTypesSelected').text(assessmentTypeArrayFinalList)
+    });
+    $('.copyPrevSpan').on("click", function() {
+        var copyText = $(this).prev('span').text();
+        console.log(copyText)
+
+        if (!navigator.clipboard) {
+            // use old execCommand() way
+            var tempTextArea = document.createElement("textarea");
+            tempTextArea.value = copyText;
+            console.log(tempTextArea.value)
+            document.body.appendChild(tempTextArea);
+            console.log(tempTextArea.value)
+            tempTextArea.focus();
+            tempTextArea.select();
+            document.execCommand("Copy");
+            tempTextArea.remove();
+        } else {
+            navigator.clipboard.writeText(copyText)
+        }
+    });
+    //  let nameOutput = document.getElementsByClassName('ccName');
     let nameInputBox = document.getElementById('nameInputBox');
     //  let courseCodeOutput = document.getElementById('courseCodeOutput');
     let courseCodeInputBox = document.getElementById('courseCode');
@@ -60,10 +79,10 @@ window.addEventListener('load', function() {
     $('body').change(function() {
         var selectedDate = linked1.viewDate;
         if (courseCodeInputBox.value != "" && courseTitleInputBox.value != "" && nameInputBox.value != "" && selectedDate != "") {
-            $('#copyTemplateBtn, #ecpSuggestedTextCard, #initialBBCommsTextCard').removeClass('d-none');
+            $('#copyTemplateBtn, #ecpSuggestedTextCard, #initialBBCommsTextCard, #weblinkToInsperaTextCard').removeClass('d-none');
             //$('#ecpSuggestedTextCard').removeClass('d-none');
         } else {
-            $('#copyTemplateBtn, #ecpSuggestedTextCard, #initialBBCommsTextCard').addClass('d-none');
+            $('#copyTemplateBtn, #ecpSuggestedTextCard, #initialBBCommsTextCard, #weblinkToInsperaTextCard').addClass('d-none');
         }
         /*
            else{
