@@ -109,7 +109,7 @@
             <a class="nav-link text-dark py-3" href="#">Other assessment</a>
         </li>
     </ul>
-    <div class="container-fluid w-100">
+    <div class="container-fluid">
         <h5>Assessment type</h5>
         <p>Please choose your assessment type from the list below. <strong>Please ensure you only choose the assessments that will run in Inspera.</strong></p>
         <div class="form-check form-check-inline">
@@ -132,19 +132,24 @@
             <input class="form-check-input" name="assessmentTypes" type="checkbox" value="Exam" id="exam">
             <label class="form-check-label" for="exam">Exam</label>
         </div>
+        <hr />
         <h5 class="mt-3">Enter your name</h5>
         <p>Enter your name below as you would like to see it as signing off to students in the announcement.</p>
         <p><input class="rounded p-2 w-25" rows="1" name="nameInputBox" type="text" id="nameInputBox" placeholder="Type your name here"></p>
+        <hr />
         <h5 class="mt-3">Enter your Course Code</h5>
         <p>Enter your course code, e.g. ABCD1234. This input will automatically convert your input to uppercase. You do not need to turn caps lock on or press shift.</p>
         <p><input oninput="this.value = this.value.toUpperCase()" maxlength="8" minlength="8" class="rounded p-2 w-25" rows="1" name="courseCode" type="text" id="courseCode" placeholder="Type your course code here e.g. ABCD1234"></p>
+        <hr />
         <h5 class="mt-3">Enter your Course Title</h5>
         <p>Enter your course title.</p>
         <p><input class="rounded p-2 w-25" rows="1" name="courseTitle" type="text" id="courseTitle" placeholder="Type your course title here"></p>
+        <hr />
         <h5 class="mt-3">Blackboard Course Assessment Area Link</h5>
         <p>Paste the URL for the Assessment Area in your Blackboard course.</p>
         <p><input class="rounded p-2 w-75" rows="1" name="bbAssessmentAreaLink" type="text" id="bbAssessmentAreaLink" placeholder="Paste your course assessment area link here"></p>
-        <div class="d-none ifExamSelected" id="examTypeAndPeriod">
+        <hr class="ifExamSelected fade d-none" />
+        <div class="ifExamSelected fade d-none" id="examTypeAndPeriod">
             <h5 class="mt-3">Select Exam Period</h5>
             <p>Select the exam period. If you have both a Mid-Semester and End-of-Semester exam, select <strong>Both Exam Periods</strong></p>
             <!--<select id="examPeriodSelect" class="p-2">
@@ -165,6 +170,7 @@
                 <input class="form-check-input" type="radio" name="examPeriod" value="bothExamPeriods" id="bothExamPeriods">
                 <label class="form-check-label" for="bothExamPeriods">Both Exam Periods</label>
             </div>
+            <hr />
             <h5 class="mt-3">Central or School Based</h5>
             <p>Choose whether your exam is a centrally run exam or school based exam</p>
             <div class="form-check form-check-inline">
@@ -185,7 +191,7 @@
                     <label class="form-check-label" for="bothCentral">Both Central Exams</label>
                 </div>
             </div>
-
+            <hr />
             <h5 class="mt-3">Invigilated or Non-Invigilated</h5>
             <p>Choose whether your exam is a invigilated or non-invigilated</p>
             <div class="form-check form-check-inline">
@@ -196,6 +202,7 @@
                 <input class="form-check-input" name="invigilation" type="radio" value="nonInvigilated" id="nonInvigilated">
                 <label class="form-check-label" for="nonInvigilated">Non-Invigilated</label>
             </div>
+            <hr />
             <h5 class="mt-3">Closed Broswer or Open Browser</h5>
             <p>Choose whether your exam will use Safe Exam Browser/Inspera Exam Portal or will not lock down student devices</p>
             <div class="form-check form-check-inline">
@@ -207,7 +214,8 @@
                 <label class="form-check-label" for="openBrowser">Open Browser</label>
             </div>
         </div>
-        <div class="d-none ifExamSelected">
+        <hr class="ifExamSelected fade d-none" />
+        <div class="ifExamSelected fade d-none">
             <h5 class="mt-3">Date and Time of Exam</h5>
             <p>Please select the date your assessment is due or the date of your exam. This will then calculate the dates you should be posting communications to students in Blackboard. <strong>If your assessment is in the exam period</strong>, please select
                 the checkbox to the right.</p>
@@ -241,9 +249,21 @@
                 </div>
             </div>
         </div>
-
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-            <div class="col d-none" id="ecpSuggestedTextCard">
+        <hr class="fade d-none" id="templateHR" />
+        <div class="row fade d-none" id="templatePackageTextVideo">
+            <div class="col-8">
+                <h5>Your Template Package</h5>
+                <p>Below are all the templates we recommend you use for your course's assessment in Inspera. Click the preview button to see the text for the template with the information you have provided included.</p>
+                <p>Within each preview are buttons to copy the template's text or HTML (depending on what needs to be copied). Make sure you watch the walkthough video on how to paste the template HTML into your Blackboard Course.</p>
+            </div>
+            <div class="col">
+                <div class="ratio ratio-16x9">
+                    <iframe src="https://www.youtube.com/embed/NpEaa2P7qZI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="row row-cols-1 row-cols-md-3 g-4 mt-3">
+            <div class="col fade d-none" id="ecpSuggestedTextCard">
                 <div class="card h-100">
                     <div class="card-body">
                         <h5 class="card-title">ECP Suggested Text</h5>
@@ -253,7 +273,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col d-none" id="initialBBCommsTextCard">
+            <div class="col fade d-none" id="initialBBCommsTextCard">
                 <div class="card h-100">
                     <div class="card-body">
                         <h5 class="card-title">Initial Announcement - This Course Will Be Using Inspera</h5>
@@ -263,12 +283,22 @@
                     </div>
                 </div>
             </div>
-            <div class="col d-none" id="weblinkToInsperaTextCard">
+            <div class="col fade d-none" id="weblinkToInsperaTextCard">
                 <div class="card h-100">
                     <div class="card-body">
                         <h5 class="card-title">Weblink to Inspera Assessment Information</h5>
-                        <p class="card-text">The title, URL and description for a weblink you should place in your Blackboard course under a designated Assessment area.</p>
+                        <p class="card-text">The title, URL and description for a weblink to information about Inspera Assessment you should place in your Blackboard course under a designated assessment area.</p>
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#weblinkToInsperaTemplate">Preview
+                          template</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col fade d-none" id="weblinkToOnCampusInvigilatedExamsTextCard">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Weblink to On-campus Invigilated Exams</h5>
+                        <p class="card-text">The title, URL and description for a weblink to information about On-campus Invigilated Exams you should place in your Blackboard course under a designated assessment area.</p>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#weblinkToOnCampusInvigilatedExams">Preview
                           template</button>
                     </div>
                 </div>
@@ -332,23 +362,59 @@
             </div>
         </div>
         <!--End Initial Bb Announcement Modal-->
-        <!--Web Link to Inspera in your Blackboard Assessment Section-->
+        <!--Web Link to Inspera in your Blackboard Assessment Section Modal-->
         <div class="modal fade" id="weblinkToInsperaTemplate" tabindex="-1" role="dialog" aria-labelledby="weblinkToInsperaTemplate" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-body">
-                        <p>Weblink name: <span id="weblinkName">Inspera Assessment Information</span> <button class="btn btn-sm btn-primary copyPrevSpan">Copy Weblink Name</button></p>
-                        <p>URL: <span id="weblinkURL">https://web.library.uq.edu.au/library-services/it/assessments-inspera</span> <button class="btn btn-sm btn-primary copyPrevSpan">Copy Weblink URL</button></p>
+                        <p>Weblink name: <span id="weblinkName">Inspera Assessment Information</span> <button class="btn btn-sm btn-primary copyPrevSpan ms-3">Copy Weblink Name</button></p>
+                        <p>URL: <span id="weblinkURL">https://web.library.uq.edu.au/library-services/it/assessments-inspera</span> <button class="btn btn-sm btn-primary copyPrevSpan ms-3">Copy Weblink URL</button></p>
                         <p>In the description enter the following:</p>
                         <a class="text-white btn btn-sm btn-primary rounded text-white copybutton d-none mb-3" id="copyTemplateBtn">Copy Template HTML</a>
-                        <p>This web pages contains information for students such as:</p>
-                        <ul>
-                            <li>How to access Inspera</li>
-                            <li>Device requirements</li>
-                            <li>Familiarisation opportunities</li>
-                            <li>Submitting assessment and viewing feedback</li>
-                            <li>Access to the Student Laptop Scheme and short-term laptop loans.</li>
-                        </ul>
+                        <div>
+                            <p>This web page contains information for students such as:</p>
+                            <ul>
+                                <li>How to access Inspera</li>
+                                <li>Device requirements</li>
+                                <li>Familiarisation opportunities</li>
+                                <li>Submitting assessment and viewing feedback</li>
+                                <li>Access to the Student Laptop Scheme and short-term laptop loans.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End Web Link to Inspera in your Blackboard Assessment Section Modal-->
+        <!--Web Link to On-campus exams in Inspera Modal-->
+        <div class="modal fade" id="weblinkToOnCampusInvigilatedExams" tabindex="-1" role="dialog" aria-labelledby="weblinkToOnCampusInvigilatedExams" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <p>Weblink name: <span id="weblinkName">On-campus invigilated exams in Inspera</span> <button class="btn btn-sm btn-primary copyPrevSpan ms-3">Copy Weblink Name</button></p>
+                        <p>URL: <span id="weblinkURL">https://web.library.uq.edu.au/library-services/it/assessments-inspera/campus-invigilated-exams-inspera</span> <button class="btn btn-sm btn-primary copyPrevSpan ms-3">Copy Weblink URL</button></p>
+                        <p>In the description enter the following:</p>
+                        <a class="text-white btn btn-sm btn-primary rounded text-white copybutton d-none mb-3" id="copyTemplateBtn">Copy Template HTML</a>
+                        <div>
+                            <p>This web page contains information for students to prepare you for your exam such as:</p>
+                            <ul>
+                                <li>Browser and operating system requirements.</li>
+                                <li>How to download and install Safe Exam Browser (SEB).</li>
+                                <li>How to complete the Inspera Safe Exam Browser preparation.</li>
+                                <li>Where to go for support.</li>
+                            </ul>
+                        </div>
+                        <!--End of Web Link to On-campus exams in Inspera Modal-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Web Link to On-campus exams in Inspera Modal-->
+        <div class="modal fade" id="weblinkToOnCampusInvigilatedExams" tabindex="-1" role="dialog" aria-labelledby="weblinkToOnCampusInvigilatedExams" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+
                     </div>
                 </div>
             </div>

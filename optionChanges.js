@@ -37,6 +37,14 @@ window.addEventListener('load', function() {
         } else {
             navigator.clipboard.writeText(copyText)
         }
+        var btn = $(this);
+        var copySpanBtnOriginal = $('.copyPrevSpan').clone().html()
+        btn.toggleClass('btn-primary btn-success')
+        btn.html('<i class="fa fa-check" aria-hidden="true"></i> Copied');
+        window.setTimeout(function() {
+            btn.html(copySpanBtnOriginal);
+            btn.toggleClass('btn-success btn-primary');
+        }, 1500);
     });
     //  let nameOutput = document.getElementsByClassName('ccName');
     let nameInputBox = document.getElementById('nameInputBox');
@@ -72,26 +80,29 @@ window.addEventListener('load', function() {
     $(examSelected).change(function() {
         if (examSelected.checked == true) {
             $('.ifExamSelected').removeClass('d-none');
+            setTimeout(function() {
+                $('.ifExamSelected').addClass('show')
+            }, 100);
         } else {
-            $('.ifExamSelected').addClass('d-none');
+            $('.ifExamSelected').removeClass('show');
+            setTimeout(function() {
+                $('.ifExamSelected').addClass('d-none')
+            }, 100);
         }
     });
     $('body').change(function() {
         var selectedDate = linked1.viewDate;
         if (courseCodeInputBox.value != "" && courseTitleInputBox.value != "" && nameInputBox.value != "" && selectedDate != "") {
-            $('#copyTemplateBtn, #ecpSuggestedTextCard, #initialBBCommsTextCard, #weblinkToInsperaTextCard').removeClass('d-none');
-            //$('#ecpSuggestedTextCard').removeClass('d-none');
+            $('#copyTemplateBtn, #templateHR, #templatePackageTextVideo, #ecpSuggestedTextCard, #initialBBCommsTextCard, #weblinkToInsperaTextCard, #weblinkToOnCampusInvigilatedExamsTextCard').removeClass('d-none');
+            setTimeout(function() {
+                $('#copyTemplateBtn, #templateHR, #templatePackageTextVideo, #ecpSuggestedTextCard, #initialBBCommsTextCard, #weblinkToInsperaTextCard, #weblinkToOnCampusInvigilatedExamsTextCard').addClass('show');
+            }, 100);
         } else {
-            $('#copyTemplateBtn, #ecpSuggestedTextCard, #initialBBCommsTextCard, #weblinkToInsperaTextCard').addClass('d-none');
+            $('#copyTemplateBtn, #templateHR, #templatePackageTextVideo, #ecpSuggestedTextCard, #initialBBCommsTextCard, #weblinkToInsperaTextCard, #weblinkToOnCampusInvigilatedExamsTextCard').removeClass('show');
+            setTimeout(function() {
+                $('#copyTemplateBtn, #templateHR, #templatePackageTextVideo, #ecpSuggestedTextCard, #initialBBCommsTextCard, #weblinkToInsperaTextCard, #weblinkToOnCampusInvigilatedExamsTextCard').addClass('d-none');
+            }, 100);
         }
-        /*
-           else{
-                $('#copyTemplateBtn').addClass('d-none');
-                alert('Please ensure you have completed all the necessary fields');
-                $('#examPeriodSelect').toggleClass('border-danger');
-                $('#nameInputBox').toggleClass('');
-            }*/
-
     });
     $('#date1, #date2').click(function() {
         $('.td-half').click(function() {
