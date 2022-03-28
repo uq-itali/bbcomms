@@ -54,15 +54,15 @@ window.addEventListener('load', function() {
     let courseTitleInputBox = document.getElementById('courseTitle');
     let bbAssessmentAreaLinkInputBox = document.getElementById('bbAssessmentAreaLink')
     let examSelected = document.getElementById('exam');
-    var examPeriodSelected = $("input:radio[name='examPeriod']:checked").val();
-    var examPeriodSelected = $("input:checkbox[name='assessmentTypes']:checked").val();
-    $('#examPeriodSelect').change(function() {
+    var examSelector =  $("input:radio[name='examPeriod']");
+    var examPeriodSelected = $("input:radio[name='examPeriod']").val();
+    $(examSelector).change(function() {
         if (examPeriodSelected == 'midSem') {
-            $('span#examPeriodSelected').html("<strong>Mid-Semester</strong>")
+            $('span.examPeriodSelected').html("<strong>Mid-Semester</strong>")
         } else if (examPeriod == 'endOfSem') {
-            $('span#examPeriodSelected').html("<strong>End-of-Semester</strong>")
+            $('span.examPeriodSelected').html("<strong>End-of-Semester</strong>")
         } else if (examPeriod == 'bothExamPeriods') {
-            $('span#examPeriodSelected').html("<strong>Mid-Semester and End-of-Semester</strong>");
+            $('span.examPeriodSelected').html("<strong>Mid-Semester and End-of-Semester</strong>");
         }
     });
     nameInputBox.addEventListener('input', function getCCName() {

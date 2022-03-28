@@ -111,7 +111,8 @@
     </ul>
     <div class="container-fluid">
         <h5>Assessment type</h5>
-        <p>Please choose your assessment type from the list below. <strong>Please ensure you only choose the assessments that will run in Inspera.</strong></p>
+        <p>Please choose your assessment type from the list below. <strong>Please ensure you only choose the assessments
+        that will run in Inspera.</strong></p>
         <div class="form-check form-check-inline">
             <input class="form-check-input" name="assessmentTypes" type="checkbox" value="Audio/Video Presentation" id="avPresentation">
             <label class="form-check-label" for="avPresentation">Audio/Video Presentation</label>
@@ -139,7 +140,8 @@
         <hr />
         <h5 class="mt-3">Enter your Course Code</h5>
         <p>Enter your course code, e.g. ABCD1234. This input will automatically convert your input to uppercase. You do not need to turn caps lock on or press shift.</p>
-        <p><input oninput="this.value = this.value.toUpperCase()" maxlength="8" minlength="8" class="rounded p-2 w-25" rows="1" name="courseCode" type="text" id="courseCode" placeholder="Type your course code here e.g. ABCD1234"></p>
+        <p><input oninput="this.value = this.value.toUpperCase()" maxlength="8" minlength="8" class="rounded p-2 w-25" rows="1" name="courseCode" type="text" id="courseCode" placeholder="Type your course code here e.g. ABCD1234">
+        </p>
         <hr />
         <h5 class="mt-3">Enter your Course Title</h5>
         <p>Enter your course title.</p>
@@ -151,7 +153,8 @@
         <hr class="ifExamSelected fade d-none" />
         <div class="ifExamSelected fade d-none" id="examTypeAndPeriod">
             <h5 class="mt-3">Select Exam Period</h5>
-            <p>Select the exam period. If you have both a Mid-Semester and End-of-Semester exam, select <strong>Both Exam Periods</strong></p>
+            <p>Select the exam period. If you have both a Mid-Semester and End-of-Semester exam, select <strong>Both Exam
+          Periods</strong></p>
             <!--<select id="examPeriodSelect" class="p-2">
               <option type="radio" value="">Choose Mid-Sem or EoS</option>
               <option type="radio" value="midSem">Mid-Semester</option>
@@ -184,7 +187,8 @@
             <div class="twoExams d-none">
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="examType" value="oneOfEachExam" id="oneOfEachExam">
-                    <label class="form-check-label" for="oneOfEachExam">Mid-Semester School-based exam + End-of-Semester Central Exam</label>
+                    <label class="form-check-label" for="oneOfEachExam">Mid-Semester School-based exam + End-of-Semester Central
+            Exam</label>
                 </div>
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="examType" value="bothCentral" id="bothCentral">
@@ -204,7 +208,8 @@
             </div>
             <hr />
             <h5 class="mt-3">Closed Broswer or Open Browser</h5>
-            <p>Choose whether your exam will use Safe Exam Browser/Inspera Exam Portal or will not lock down student devices</p>
+            <p>Choose whether your exam will use Safe Exam Browser/Inspera Exam Portal or will not lock down student devices
+            </p>
             <div class="form-check form-check-inline">
                 <input class="form-check-input" name="browserType" type="radio" value="closedBrowser" id="closedBrowser">
                 <label class="form-check-label" for="closedBrowser">Closed Browser</label>
@@ -217,15 +222,15 @@
         <hr class="ifExamSelected fade d-none" />
         <div class="ifExamSelected fade d-none">
             <h5 class="mt-3">Date and Time of Exam</h5>
-            <p>Please select the date your assessment is due or the date of your exam. This will then calculate the dates you should be posting communications to students in Blackboard. <strong>If your assessment is in the exam period</strong>, please select
-                the checkbox to the right.</p>
+            <p>Please select the date your assessment is due or the date of your exam. This will then calculate the dates you should be posting communications to students in Blackboard. <strong>If your assessment is in the exam
+          period</strong>, please select the checkbox to the right.</p>
             <div class='row'>
                 <div class='col-3'>
                     <label for='date1Input' class='form-label'>From</label>
                     <div class='input-group log-event' id='date1' data-td-target-input='nearest' data-td-target-toggle='nearest'>
                         <input id='date1Input' type='text' class='form-control' data-td-target='#date1' placeholder="Choose start date and time" />
                         <span class='input-group-text' data-td-target='#date1' data-td-toggle='datetimepicker'>
-             <span class='fas fa-calendar'></span>
+              <span class='fas fa-calendar'></span>
                         </span>
                     </div>
                 </div>
@@ -234,7 +239,7 @@
                     <div class='input-group log-event' id='date2' data-td-target-input='nearest' data-td-target-toggle='nearest'>
                         <input id='date2Input' type='text' class='form-control' data-td-target='#date2' placeholder="Choose end date and time" />
                         <span class='input-group-text' data-td-target='#date2' data-td-toggle='datetimepicker'>
-             <span class='fas fa-calendar'></span>
+              <span class='fas fa-calendar'></span>
                         </span>
                     </div>
                 </div>
@@ -269,7 +274,7 @@
                         <h5 class="card-title">ECP Suggested Text</h5>
                         <p class="card-text">This is the text we suggest you add to your course's Electronic Course Profile (ECP) to give students a brief overview of what Inspera is and why it is being used in your course.</p>
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ecpSuggestedTextTemplate">Preview
-                  template</button>
+              template</button>
                     </div>
                 </div>
             </div>
@@ -279,7 +284,7 @@
                         <h5 class="card-title">Initial Announcement - This Course Will Be Using Inspera</h5>
                         <p class="card-text">This is a short announcement that confirms the use of Inspera in the unit, the assessment type and where it is located in your Blackboard course. Ensure you include the assessment link in the options above.</p>
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#initialBBCommTemplate">Preview
-                          template</button>
+              template</button>
                     </div>
                 </div>
             </div>
@@ -289,7 +294,7 @@
                         <h5 class="card-title">Weblink to Inspera Assessment Information</h5>
                         <p class="card-text">The title, URL and description for a weblink to information about Inspera Assessment you should place in your Blackboard course under a designated assessment area.</p>
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#weblinkToInsperaTemplate">Preview
-                          template</button>
+              template</button>
                     </div>
                 </div>
             </div>
@@ -298,16 +303,16 @@
                     <div class="card-body">
                         <h5 class="card-title">Weblink to On-campus Invigilated Exams</h5>
                         <p class="card-text">The title, URL and description for a weblink to information about On-campus Invigilated Exams you should place in your Blackboard course under a designated assessment area.</p>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#weblinkToOnCampusInvigilatedExams">Preview
-                          template</button>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#weblinkToOnCampusInvigilatedExams">Preview template</button>
                     </div>
                 </div>
             </div>
             <div class="col d-none">
                 <div class="card h-100">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <h5 class="card-title">AEAs and SEB Practice</h5>
+                        <p class="card-text">This is the first official prompt for students to apply for Alternative Exam Arrangements (AEAs) and to practice the use of Safe Exam Browser (SEB) which locks the user's computer out of doing anything other than completing the Inspera exam + materials selected by the Course Coordinator e.g. list of mathematical equations for use.</p>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#aeaAndSEBExamPrepTemplate">Preview template</button>
                     </div>
                 </div>
             </div>
@@ -318,7 +323,7 @@
                 <div class="modal-content">
                     <div class="modal-body">
                         <a class="text-white btn btn-sm btn-primary rounded text-white copybutton d-none mb-3" id="copyTemplateBtn">Copy
-            Template HTML</a>
+              Template HTML</a>
                         <div>
                             <p>UQ is currently rolling out a new assessment tool, Inspera Assessment. Inspera Assessment provides additional functionality to complement the existing suite of digital learning tools at UQ with a greater range of question types,
                                 accessibility provisions, and non-English languages.</p>
@@ -343,13 +348,13 @@
                 <div class="modal-content">
                     <div class="modal-body">
                         <a class="text-white btn btn-sm btn-primary rounded text-white copybutton d-none mb-3" id="copyTemplateBtn">Copy
-          Template HTML</a>
+              Template HTML</a>
                         <div>
                             <p>Hello <span class="courseCodeOutput"></span> students,</p>
                             <p><span class="courseCodeOutput"></span> - <span class="courseTitleOutput"></span> has been selected as a course in the Inspera Assessment rollout. The assessment item(s) will be a digital <span class="assessmentTypesSelected"></span>,
                                 which you will complete using your own device.</p>
-                            <p>Please refer to the <a class="bbAssessmentArea" href="" title="Blackboard Course Assessment Area"><span class="courseCodeOutput"></span> Blackboard Course Assessment area</a> for further information and support on the use of
-                                Inspera.
+                            <p>Please refer to the <a class="bbAssessmentArea" href="" title="Blackboard Course Assessment Area"><span
+                    class="courseCodeOutput"></span> Blackboard Course Assessment area</a> for further information and support on the use of Inspera.
                             </p>
                             <p>Thankyou,</p>
                             <p><span class="ccName"></span></p>
@@ -368,7 +373,9 @@
                 <div class="modal-content">
                     <div class="modal-body">
                         <p>Weblink name: <span id="weblinkName">Inspera Assessment Information</span> <button class="btn btn-sm btn-primary copyPrevSpan ms-3">Copy Weblink Name</button></p>
-                        <p>URL: <span id="weblinkURL">https://web.library.uq.edu.au/library-services/it/assessments-inspera</span> <button class="btn btn-sm btn-primary copyPrevSpan ms-3">Copy Weblink URL</button></p>
+                        <p>URL: <span id="weblinkURL">https://web.library.uq.edu.au/library-services/it/assessments-inspera</span>
+                            <button class="btn btn-sm btn-primary copyPrevSpan ms-3">Copy Weblink URL</button>
+                        </p>
                         <p>In the description enter the following:</p>
                         <a class="text-white btn btn-sm btn-primary rounded text-white copybutton d-none mb-3" id="copyTemplateBtn">Copy Template HTML</a>
                         <div>
@@ -392,7 +399,9 @@
                 <div class="modal-content">
                     <div class="modal-body">
                         <p>Weblink name: <span id="weblinkName">On-campus invigilated exams in Inspera</span> <button class="btn btn-sm btn-primary copyPrevSpan ms-3">Copy Weblink Name</button></p>
-                        <p>URL: <span id="weblinkURL">https://web.library.uq.edu.au/library-services/it/assessments-inspera/campus-invigilated-exams-inspera</span> <button class="btn btn-sm btn-primary copyPrevSpan ms-3">Copy Weblink URL</button></p>
+                        <p>URL: <span id="weblinkURL">https://web.library.uq.edu.au/library-services/it/assessments-inspera/campus-invigilated-exams-inspera</span>
+                            <button class="btn btn-sm btn-primary copyPrevSpan ms-3">Copy Weblink URL</button>
+                        </p>
                         <p>In the description enter the following:</p>
                         <a class="text-white btn btn-sm btn-primary rounded text-white copybutton d-none mb-3" id="copyTemplateBtn">Copy Template HTML</a>
                         <div>
@@ -410,11 +419,34 @@
             </div>
         </div>
         <!--Web Link to On-campus exams in Inspera Modal-->
-        <div class="modal fade" id="weblinkToOnCampusInvigilatedExams" tabindex="-1" role="dialog" aria-labelledby="weblinkToOnCampusInvigilatedExams" aria-hidden="true">
+        <div class="modal fade" id="aeaAndSEBExamPrepTemplate" tabindex="-1" role="dialog" aria-labelledby="aeaAndSEBExamPrepTemplate" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-body">
+                        <p>Dear students,</p>
+                        <p>As per your Electronic Course Profile, you will be completing your <span class="examPeriodSelected"></span> exam using Inspera. This will be an on-campus invigilated exam using your own laptop. Please refer to your personal timetable for the date, time and venue.</p>
+                        <p>If you need to apply for an alternative exam arrangement, and have not yet done so, please visit the Alternative exam arrangement website (https://my.uq.edu.au/information-and-services/manage-my-program/exams-and-assessment/alternative-exam-arrangements) and click Request now.</p>
+                        <p>If you have not already visited the Assessments in Inspera website (https://web.library.uq.edu.au/library- services/it/assessments-inspera), please do so. To ensure you are prepared for your exam, please complete the following steps as soon as possible so you can ensure your laptop is suitable for the exam:</p>
+                        <h6>Download Safe Exam Browser (SEB)</h6>
+                        <p>
+                            <a href="https://static.inspera.com/getsebwin" class="btn btn-outline-secondary btn-sm"><i class="fa-brands fa-windows"></i> Windows</a>
+                            <a href="https://static.inspera.com/getsebmac" class="me-3 btn btn-outline-secondary btn-sm"><i class="fa-brands fa-apple"></i> macOS</a></p>
+                        <!--<ol>
+                            <li>Go to the On-campus invigilated exams in Inspera page</li>
+                            <li>Click the button to "Download Safe Exam Browser"</li>
+                        </ol>-->
+                        <h6>Complete the Inspera Safe Exam Browser Preparation test</h6>
+                        <ol>
+                            <li>Login to <a href="https://uqi.inspera.com" target="_blank" title="Inspera Assessment at UQ">https://uqi.inspera.com</a> using your student UQ username and password.</li>
+                            <li>Click on the <strong>Demo tests</strong> tab on the right.</li>
+                            <li></li>
+                        </ol>
 
+                          .    Click on "Inspera Safe Exam Browser Preparation" Read the instructions carefully - and don’t forget to write down the password before you start, you need it to exit SEB!
+                        Complete the test. Your laptop will be suitable to complete your exam as long as: you can charge your laptop to 180+ minutes of battery power you have downloaded Safe Exam Browser (SEB) you have successfully completed the "Inspera
+                        Safe Exam Browser Preparation" test. If your laptop is not suitable, or you have any technical issues with the above steps, contact AskUs for assistance. They can assist you with: Troubleshooting Safe Exam Browser (SEB) Laptop
+                        loans* Applying for financial hardship assistance to loan or purchase a laptop. *As there are limited laptops available, it is important that you determine whether your personal laptop is suitable as soon as possible. If you have
+                        any questions about using Inspera and Safe Exam Browser, please contact AskUs for assistance.
                     </div>
                 </div>
             </div>
