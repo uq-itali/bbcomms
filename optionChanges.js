@@ -1,4 +1,5 @@
 window.addEventListener('load', function() {
+    //Assessment types retrieve checkbox values
     $('input[name="assessmentTypes"]').on('click', function() {
         var assessmentTypesArray = []
         var assessmentTypesChecked = document.querySelectorAll('input[name="assessmentTypes"]:checked')
@@ -19,6 +20,8 @@ window.addEventListener('load', function() {
         $('.assessmentTypeListOr').text(assessmentTypeListOr)
         $('.assessmentTypesSelected').text(assessmentTypeArrayFinalList)
     });
+    //End retrieve assessment type function
+    //Copy previous span when the relevant button is clicked
     $('.copyPrevSpan').on("click", function() {
         var copyText = $(this).prev('span').text();
         console.log(copyText)
@@ -46,38 +49,50 @@ window.addEventListener('load', function() {
             btn.toggleClass('btn-success btn-primary');
         }, 1500);
     });
-    //  let nameOutput = document.getElementsByClassName('ccName');
+    //End copy previous span function
+    //Variables that get help get the input from the user
     let nameInputBox = document.getElementById('nameInputBox');
-    //  let courseCodeOutput = document.getElementById('courseCodeOutput');
     let courseCodeInputBox = document.getElementById('courseCode');
-    //let courseTitleOutput = document.getElementById('courseTitleOutput');
     let courseTitleInputBox = document.getElementById('courseTitle');
-    let bbAssessmentAreaLinkInputBox = document.getElementById('bbAssessmentAreaLink')
+    let bbAssessmentAreaLinkInputBox = document.getElementById('bbAssessmentAreaLink');
     let examSelected = document.getElementById('exam');
-    var examSelector =  $("input:radio[name='examPeriod']");
-    var examPeriodSelected = $("input:radio[name='examPeriod']").val();
-    $(examSelector).change(function() {
-        if (examPeriodSelected == 'midSem') {
-            $('span.examPeriodSelected').html("<strong>Mid-Semester</strong>")
-        } else if (examPeriod == 'endOfSem') {
-            $('span.examPeriodSelected').html("<strong>End-of-Semester</strong>")
-        } else if (examPeriod == 'bothExamPeriods') {
-            $('span.examPeriodSelected').html("<strong>Mid-Semester and End-of-Semester</strong>");
-        }
-    });
+    let examPeriodSelect = document.getElementById('examPeriodSelect');
+    let examPeriodSelectedSpan = $('span.examPeriodSelected');
+    
+
+    //When exam is selected, and an exam period is then selected, then update the HTML in the exam templates
+    examPeriodSelect.addEventListener("click", function() {
+        var examSelectors = document.querySelector('input[name="examPeriod"]:checked').value;
+        switch (examSelectors){
+            case 'midSem':
+                examPeriodSelectedSpan.html("<strong>Mid-Semester</strong> exam");
+                break;
+            case 'endOfSem':
+                examPeriodSelectedSpan.html("<strong>End-of-Semester</strong> exam")
+                break;
+            case 'bothExamPeriods':
+                examPeriodSelectedSpan.html("<strong>Mid-Semester and End-of-Semester</strong> exams")
+                break;
+    }
+});
+    //Get CC Name Input
     nameInputBox.addEventListener('input', function getCCName() {
         $('.ccName').text(nameInputBox.value)
     });
+    //Get Course Code Input
     courseCodeInputBox.addEventListener('input', function getCourseCode() {
         $('.courseCodeOutput').text(courseCodeInputBox.value)
     });
+    //Get Course Title Input
     courseTitleInputBox.addEventListener('input', function getCourseTitle() {
         $('.courseTitleOutput').text(courseTitleInputBox.value)
     });
+    //Get Bb Assessment Area Link Input
     bbAssessmentAreaLinkInputBox.addEventListener('input', function getCourseTitle() {
         $('.bbAssessmentArea').attr('href', bbAssessmentAreaLinkInputBox.value)
     });
-    $(examSelected).change(function() {
+    //Reveal all parameters relating to exams that are hidden until the exam assessment type is selected
+    $(examSelected).click(function() {
         if (examSelected.checked == true) {
             $('.ifExamSelected').removeClass('d-none');
             setTimeout(function() {
@@ -90,20 +105,23 @@ window.addEventListener('load', function() {
             }, 100);
         }
     });
+    //When something changes on the page check all inputs to ensure they are filled in, then reveal template cards
     $('body').change(function() {
         var selectedDate = linked1.viewDate;
         if (courseCodeInputBox.value != "" && courseTitleInputBox.value != "" && nameInputBox.value != "" && selectedDate != "") {
-            $('#copyTemplateBtn, #templateHR, #templatePackageTextVideo, #ecpSuggestedTextCard, #initialBBCommsTextCard, #weblinkToInsperaTextCard, #weblinkToOnCampusInvigilatedExamsTextCard').removeClass('d-none');
+            $('#copyTemplateBtn, #templateHR, #templatePackageTextVideo, #ecpSuggestedTextCard, #initialBBCommsTextCard, #weblinkToInsperaTextCard, #weblinkToOnCampusInvigilatedExamsTextCard, #aeaAndSEBPracticeTextCard').removeClass('d-none');
             setTimeout(function() {
-                $('#copyTemplateBtn, #templateHR, #templatePackageTextVideo, #ecpSuggestedTextCard, #initialBBCommsTextCard, #weblinkToInsperaTextCard, #weblinkToOnCampusInvigilatedExamsTextCard').addClass('show');
+                $('#copyTemplateBtn, #templateHR, #templatePackageTextVideo, #ecpSuggestedTextCard, #initialBBCommsTextCard, #weblinkToInsperaTextCard, #weblinkToOnCampusInvigilatedExamsTextCard, #aeaAndSEBPracticeTextCard').addClass('show');
             }, 100);
         } else {
-            $('#copyTemplateBtn, #templateHR, #templatePackageTextVideo, #ecpSuggestedTextCard, #initialBBCommsTextCard, #weblinkToInsperaTextCard, #weblinkToOnCampusInvigilatedExamsTextCard').removeClass('show');
+            $('#copyTemplateBtn, #templateHR, #templatePackageTextVideo, #ecpSuggestedTextCard, #initialBBCommsTextCard, #weblinkToInsperaTextCard, #weblinkToOnCampusInvigilatedExamsTextCard, #aeaAndSEBPracticeTextCard').removeClass('show');
             setTimeout(function() {
-                $('#copyTemplateBtn, #templateHR, #templatePackageTextVideo, #ecpSuggestedTextCard, #initialBBCommsTextCard, #weblinkToInsperaTextCard, #weblinkToOnCampusInvigilatedExamsTextCard').addClass('d-none');
+                $('#copyTemplateBtn, #templateHR, #templatePackageTextVideo, #ecpSuggestedTextCard, #initialBBCommsTextCard, #weblinkToInsperaTextCard, #weblinkToOnCampusInvigilatedExamsTextCard, #aeaAndSEBPracticeTextCard').addClass('d-none');
             }, 100);
         }
+      
     });
+    //Retrieve time values and calculate 3 days before, 7 days before, and 14 days before the start date
     $('#date1, #date2').click(function() {
         $('.td-half').click(function() {
             var startDate = moment(linked1.viewDate).format('LLL');
@@ -116,6 +134,8 @@ window.addEventListener('load', function() {
             console.log(oneWeekOut);
             var twoWeeksOut = moment(linked1.viewDate).subtract(14, 'day').format('LLL');
             console.log(twoWeeksOut);
+            var threeWeeksOut = moment(linked1.viewDate).subtract(21, 'day').format('LLL');
+            console.log(threeWeeksOut);
             var dateOfAsst = document.getElementById('dateSelected1');
             //  dateOfAsst.innerText = startDate + '-' + endTime
         });
