@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Required meta tags -->
@@ -26,14 +26,18 @@
     <script src="js/datepicker6.js" crossorigin="anonymous"></script>
     <!--Moment to help with date calculations-->
     <script src="js/moment.js" crossorigin="anonymous"></script>
+    <!--Duration picker for exam duration-->
+    <script src="js/bootstrap-duration-picker.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/bootstrap-duration-picker.css" crossorigin="anonymous">
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- Tempus Dominus Styles -->
     <link href="css/datepicker6.css" rel="stylesheet" crossorigin="anonymous">
     <!--Fonts-->
     <link type="text/css" rel="stylesheet" href="https://static.uq.net.au/v12/fonts/Roboto/roboto.css" media="all">
     <link type="text/css" rel="stylesheet" href="https://static.uq.net.au/v12/fonts/Merriweather/merriweather.css" media="all">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
     <script type="text/javascript">
         window.addEventListener("load", function () {
             var pgurl = window.location.href;
@@ -131,24 +135,6 @@
             <img src="https://static.uq.net.au/v11/logos/corporate/uq-lockup-landscape--reversed.svg" class="m-3" />
         </div>
     </div>
-    <!--<ul class="nav justify-content-center bg-white"
-        style="font-family: Roboto, sans-serif;font-weight:300;line-height:24px">
-        <li class="nav-item">
-            <a class="nav-link text-dark py-3" href="https://uqea.github.io/bbcomms/home.html">Home</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link text-dark py-3" href="#">ECP information</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link text-dark py-3" href="#">Closed browser exams</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link text-dark py-3" href="#">Open browser exams</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link text-dark py-3" href="#">Other assessment</a>
-        </li>
-    </ul>-->
     <div class="container-fluid mt-3">
         <div id="assessmentTypeSelector">
         <h5>Assessment type</h5>
@@ -177,16 +163,16 @@
         <hr />
         <h5 class="mt-3">Enter your name</h5>
         <p>Enter your name below as you would like to see it as signing off to students in the announcement.</p>
-        <p><input class="rounded p-2 w-25" rows="1" name="nameInputBox" type="text" id="nameInputBox" placeholder="Type your name here"></p>
+        <p><input class="rounded p-2 w-50" rows="1" name="nameInputBox" type="text" id="nameInputBox" placeholder="Type your name here"></p>
         <hr />
         <h5 class="mt-3">Enter your Course Code</h5>
         <p>Enter your course code, e.g. ABCD1234. This input will automatically convert your input to uppercase. You do not need to turn caps lock on or press shift.</p>
-        <p><input oninput="this.value = this.value.toUpperCase()" maxlength="8" minlength="8" class="rounded p-2 w-25" rows="1" name="courseCode" type="text" id="courseCode" placeholder="Type your course code here e.g. ABCD1234">
+        <p><input oninput="this.value = this.value.toUpperCase()" maxlength="8" minlength="8" class="rounded p-2 w-50" rows="1" name="courseCode" type="text" id="courseCode" placeholder="Type your course code here e.g. ABCD1234">
         </p>
         <hr />
         <h5 class="mt-3">Enter your Course Title</h5>
         <p>Enter your course title.</p>
-        <p><input class="rounded p-2 w-25" rows="1" name="courseTitle" type="text" id="courseTitle" placeholder="Type your course title here"></p>
+        <p><input class="rounded p-2 w-50" rows="1" name="courseTitle" type="text" id="courseTitle" placeholder="Type your course title here"></p>
         <hr />
         <h5 class="mt-3">Blackboard Course Assessment Area Link</h5>
         <p>Paste the URL for the Assessment Area in your Blackboard course.</p>
@@ -194,7 +180,6 @@
         <hr class="ifExamSelected fade d-none" />
         <button class="btn btn-primary mb-3" id="convertTemplateButton">Create PDF</button>
         <div id="downloadTemplateToPDF">
-            <script src="https://kit.fontawesome.com/3ec1dca8cc.js" crossorigin="anonymous"></script>
         <style>
             @media print {
                 table{
@@ -258,8 +243,8 @@
             padding: 5px;
         }
         </style>
-        
-        <table class="examInformationSheet downloadTemplateToPDF">
+        <script src="https://kit.fontawesome.com/3ec1dca8cc.js" crossorigin="anonymous"></script>
+        <table id="onCampusInvigilatedInformationSheet" class="downloadTemplateToPDF">
             <thead style="color:white;background:#51247a">
                 <tr>
                     <th colspan="2" style="font-size:1.5rem;">Exam information</th>
@@ -276,53 +261,76 @@
                 </tr>
                 <tr>
                     <td>Exam type</td>
-                    <td></td>
+                    <td><span class="examTypeEIS"></span></td>
                 </tr>
                 <tr>
                     <td>Exam technology</td>
-                    <td>The exam will be completed in Inspera Assessment using <strong>Safe Exam Browser (SEB)</strong>.<br>
-                        Please ensure that you have already downloaded Safe Exam Browser (SEB) to your computer by clicking the relative button below to download the Inspera SEB version for your device if you do not already have it downloaded and installed. When clicking on these buttons a new browser tab will open briefly before the download begins or you are prompted where you would like to save the download depending on your device settings.<br>
-                        <p style="text-align:center; margin-top:10px;">
-                            <a href="https://static.inspera.com/getsebwin" title="Download Inspera SEB for Windows" class="button-3" style="text-decoration: none; margin:0px 10px;" target="_blank"><i class="fa fa-brands fa-windows"></i> Windows</a>
+                    <td><p>The exam will be completed in Inspera Assessment using <strong>Safe Exam Browser (SEB)</strong>.</p>
+                        <p>Please ensure that you have already downloaded Safe Exam Browser (SEB) to your computer by clicking the relative button below to download the Inspera SEB version for your device if you do not already have it downloaded and installed. When clicking on these buttons a new browser tab will open briefly before the download begins or you are prompted where you would like to save the download depending on your browser settings</p>
+                        <p>Click to download SEB for your operating system:</p>
+                            <a href="https://static.inspera.com/getsebwin" title="Download Inspera SEB for Windows" class="button-3" style="text-decoration: none;" target="_blank"><i class="fa fa-brands fa-windows"></i> Windows</a>
                             <a href="https://static.inspera.com/getsebmac" title="Download Inspera SEB for macOS" class="button-3" style="text-decoration: none;" target="_blank"><i class="fa fa-brands fa-apple"></i> macOS</a></p>
-                        On exam day you will access your exam via the link to your Exam in your Learn.UQ course site. The Exam Invigilator will then direct you when to launch the exam in Safe Exam Browser, and when to commence your exam.
+                        <p>On exam day you will access your exam via <span class="examAccessType"></span>. The Exam Invigilator will then direct you when to launch the exam in Safe Exam Browser, and when to commence your exam.</p>
                         </td>
                 </tr>
                 <tr>
                     <td>Exam date and time</td>
-                    <td></td>
+                    <td><span class="examDateAndTime"></span></td>
                 </tr>
                 <tr>
                     <td>Exam duration</td>
-                    <td></td>
+                    <td><p>Your invigilator will provide you with a Safe Exam Browser password on exam day. You will need to enter this password to commence the exam when the invigilator indicates it is time to do so.</p>
+                    <p>The exam duration will be made up of <strong><span class="examWorkingTime"></span> working time</strong> plus <strong>10 mins planning time</strong></p>
+                    <p>The <strong>TOTAL exam duration</strong> is <span class="examTotalDuration"></span>. You are permitted to commence the exam during planning time.</p>
+                    <p><strong>Please note: You will not be able to access the examination after this time.</strong></p>
+                    </td>
                 </tr>
                 <tr>
                     <td>Submission details</td>
-                    <td></td>
+                    <td><p>The exam will only be available in Inspera Assessment for the duration of your exam. You will not be permitted to click START until directed to do so by your Exam Invigilator.</p>
+                        <p>You will submit your exam by clicking <strong>Submit Now</strong>. Once you have clicked <strong>Submit Now</strong> you will not be able to access the exam. So do not click submit until you are sure you do not want to make any further changes.</p>
+                        <p>Your exam will automatically submit once the exam window has closed or your duration has expired. You will not be able to access the exam after this time.</p></td>
                 </tr>
                 <tr>
                     <td>Permitted materials</td>
-                    <td></td>
+                    <td><p><span class="calculatorSelection"></span></p>
+                        <p class="d-none" id="recommendedMaterialsListBelow">Please also see the recommended materials section below for a list of materials allowed in the exam.</p>
+                        </td>
                 </tr>
-                <tr>
+                <tr class="d-none" id="recommendedMaterialsRow">
                     <td>Recommended materials</td>
-                    <td></td>
+                    <td><p>Ensure the following materials are available at the exam</p>
+                    <p><span class="specificMaterialsForExam"></span></p></td>
                 </tr>
                 <tr>
                     <td>Instructions</td>
-                    <td></td>
+                    <td><p>Answer all questions in Inspera.</p>
+                    </td>
                 </tr>
                 <tr>
                     <td>Who to contact</td>
-                    <td></td>
+                    <td><p>Given the nature of this examination, responding to student queries and/or relaying corrections to exam content during the exam is not feasible.</p>
+                        <p>Therefore, at the end of the exam there will be a free text question box. Please use this to specify any assumptions you have made or queries you had in completing the exam and which questions those assumptions or queries relate to.</p>
+                        <p>If you experience any technical difficulties or are prompted for an Invigilator Password, please raise your hand and an invigilator will assist you.</p>
+                        </td>
                 </tr>
                 <tr>
-                    <td>Inmportant exam condition information</td>
-                    <td></td>
+                    <td>Important exam condition information</td>
+                    <td><p>Academic integrity is a core value of the UQ community and as such high academic integrity expectations apply to all examinations, whether undertaken face-to-face or online.</p>
+                        <p>This means:</p>
+                        <ul>
+                            <li class="importantExamConditionInfo"></li>
+                            <li>You are not permitted to consult any other person – whether directly, online, or through any other means – about any aspect of this examination during the period that it is available.</li>
+                            <li>If it is found that you have given or sought outside assistance with this examination, then that will be deemed to be cheating.</li>
+                        </ul>
+                        <p>Undertaking this online examination deems your commitment to UQ’s academic integrity pledge as summarised in the following declaration:</p>
+                        <p><em>“I certify that I have completed this examination in an honest, fair and trustworthy manner, that my submitted answers are entirely my own work, and that I have neither given nor received any unauthorised assistance on this examination”.</em></p>
+                    </td>
                 </tr>
             </tbody>
         </table>
     </div>
+        <!--Options that are revealed if exam is selected-->
         <div class="ifExamSelected fade d-none">
             <div id="teachingPeriod">
                 <h5 class="mt-3">Select Semester</h5>
@@ -346,7 +354,7 @@
             <div id="examPeriodSelect">
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="examPeriod" value="midSem" id="midSem">
-                    <label class="form-check-label" for="midSem" checked>Mid-Semester</label>
+                    <label class="form-check-label" for="midSem">Mid-Semester</label>
                 </div>
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="examPeriod" value="endOfSem" id="endOfSem">
@@ -357,6 +365,20 @@
                         id="bothExamPeriods">
                     <label class="form-check-label" for="bothExamPeriods">Both Exam Periods</label>
                 </div>
+            </div>
+            <hr />
+            <h5 class="mt-3">Select Exam Access Type</h5>
+            <p>Select the exam access type. If you have setup an LTI link in your Blackboard site choose LTI, otherwise please select not via LTI.</p>
+            <div id="examAccessSelect">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="examAccessType" value="ltiAccess" id="viaLTI">
+                    <label class="form-check-label" for="viaLTI">LTI</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="examAccessType" value="notViaLTI" id="notViaLTI">
+                    <label class="form-check-label" for="notViaLTI">Not via LTI</label>
+                </div>
+               
             </div>
             <hr />
             <div id="schoolOrCentral">
@@ -427,13 +449,26 @@
                 <input class="form-check-input" name="browserType" type="radio" value="Open Browser" id="openBrowser">
                 <label class="form-check-label" for="openBrowser">Open Browser</label>
             </div>
-        </div>    
+        </div> 
+        <div id="mainOrDeferred d-none">
+            <h5 class="mt-3">Main or Deferred/Supplementary</h5>
+            <p>Choose whether your exam is the main delivery or the deferred/supplementary delivery.</p>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="mainOrDeferred" value="Main" id="mainExam">
+                <label class="form-check-label" for="mainExam">Main Exam</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="mainOrDeferred" value="Deferred/Supplementary" id="deferredSupplementary">
+                <label class="form-check-label" for="deferredSupplementary">Deferred/Supplementary</label>
+            </div>
+        </div>   
         <hr class="ifExamSelected fade d-none" />
+        <!--Date, time and duration selector-->
         <div class="ifExamSelected fade d-none">
-            <h5 class="mt-3">Date and Time of Exam</h5>
+            <h5 class="mt-3">Date, Time and Duration of Exam</h5>
             <p>Please select the date your assessment is due or the date of your exam. This will then calculate the dates you should be posting communications to students in Blackboard. <strong>If your assessment is in the exam period</strong>, please select the checkbox to the right.</p>
             <div class='row' id="dateSelector1">
-                <div class='col-3'>
+                <div class='col-2 my-auto'>
                     <label for='date1Input' class='form-label'>From</label>
                     <div class='input-group log-event' id='date1' data-td-target-input='nearest' data-td-target-toggle='nearest'>
                         <input id='date1Input' type='text' class='form-control' data-td-target='#date1' placeholder="Choose start date and time" />
@@ -442,7 +477,7 @@
                         </span>
                     </div>
                 </div>
-                <div class='col-3'>
+                <div class='col-2 my-auto'>
                     <label for='date2Input' class='form-label'>To</label>
                     <div class='input-group log-event' id='date2' data-td-target-input='nearest' data-td-target-toggle='nearest'>
                         <input id='date2Input' type='text' class='form-control' data-td-target='#date2' placeholder="Choose end date and time" />
@@ -451,18 +486,74 @@
                         </span>
                     </div>
                 </div>
-                <div class="col-1 my-auto text-center">
-                    <h5 class="text-danger fw-bold">OR</h5>
-                </div>
                 <div class="col-2 my-auto border border-danger border-2 p-2 text-center rounded">
+                    <h5 class="text-danger fw-bold">OR</h5>
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="examPeriodOverride" id="examPeriodOverride">
-                        <label class="form-check-label" for="examPeriodOverride">My exam will run in the exam period</label>
+                        <label class="form-check-label" for="examPeriodOverride">My exam will run in the central exam period</label>
                     </div>
                 </div>
+            <div class="col-2 my-auto text-center">
+                <div id="durationPicker">
+            <form>
+                <div class="form-group">
+                  <label>Duration<br><strong>N.B: do no include planning time</strong></label>
+                  <input type="text" class="form-control" id="duration5" value="0">
+                </div>
+              </form>
+            </div>
             </div>
         </div>
+              <hr />
+            <h5 class="mt-3">Enter your exam location/venue</h5>
+            <p>Enter your exam's location as you would like it to appear in the announcement.</p>
+            <p><input class="rounded p-2 w-50" rows="1" name="locationInputBox" type="text" id="locationInputBox" placeholder="Type your exam location/venue here"></p>
+            <hr />
+        </div>
+        <div id="permittedMaterials">
+            <h5 class="mt-3">Permitted Materials</h5>
+            <p>Choose what materials students are allowed to use during this exam.</p>
+            <h6>Recommended materials</h6>
+            <div id="recommendedMaterialsSelect">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="recommendedMaterials" value="noRecommendedMaterials" id="noRecommendedMaterials" checked>
+                    <label class="form-check-label" for="noRecommendedMaterials">No recommended materials</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="recommendedMaterials" value="openBook" id="openBook">
+                    <label class="form-check-label" for="openBook">Open book exam - any resources allowed</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="recommendedMaterials" value="specificMaterials" id="specificMaterials">
+                    <label class="form-check-label" for="specificMaterials">Specific materials</label>
+                </div>
+            </div>
+            <div id="specificMaterialsList" class="d-none mt-3">
+                <h6>Specific materials list</h6>
+                <textarea class="w-50" id="specificMaterialsTextArea"></textarea>
+            </div>
+            <div id="calculatorSelect">
+            <h6 class="mt-3">Calculator</h6>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="calculator" value="noCalculator" id="noCalculator">
+                <label class="form-check-label" for="noCalculator">No calculators allowed</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="calculator" value="anyCalculator" id="anyCalculator">
+                <label class="form-check-label" for="anyCalculator">Any calculator allowed</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="calculator" value="fx82Only" id="fx82Only">
+                <label class="form-check-label" for="fx82Only">Casio FX82 series only</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="calculator" value="fx82OrUQLabelled" id="fx82OrUQLabelled">
+                <label class="form-check-label" for="fx82OrUQLabelled">Casio FX82 series or UQ approved and labelled</label>
+            </div>
+        </div>
+    </div>  
         <hr class="fade d-none" id="templateHR" />
+        <!--Template package-->
         <div class="row fade d-none" id="templatePackageTextVideo">
             <div class="col-8">
                 <h5>Your Template Package</h5>
@@ -475,6 +566,7 @@
                 </div>
             </div>
         </div>
+        <!--Template preview cards-->
         <div class="row row-cols-1 row-cols-md-4 g-4 mt-3">
             <div class="col fade d-none" id="ecpSuggestedTextCard">
                 <div class="card h-100">
@@ -712,6 +804,7 @@
         </div>
         <!--End Non-invigilated AEA prompt Modal-->
     </div>
+    <!--Script that presents date and time selector plus carries out print function for exam information sheets-->
     <script>
         const linked1 = new tempusDominus.TempusDominus(document.getElementById('date1'), {
             useCurrent: false,
@@ -733,24 +826,35 @@
         var WinPrint = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
         WinPrint.document.write(tableTemplate);
         WinPrint.document.close();
-        WinPrint.focus();
-        WinPrint.print();
-        WinPrint.close();
-      //  window.jsPDF = window.jspdf.jsPDF;
-      /*  var doc = new jsPDF('p', 'pt', 'letter');
-        doc.autoTable({headStyles:{fillColor : [81,36,122]}, theme: 'grid', columnStyles:{0:{columnWidth: 50},1:{columnWidth: 50}}});
-      //  doc.canvas.height = 80 * 11;
-      //  doc.canvas.width = 80 * 8.5;
-        console.log(tableTemplate);
-        doc.html(tableTemplate); //Your HTML content goes here
-        
-      //  doc.textWithLink('Click here', 15, 15, { url: 'http://www.google.com' });        
-      //  doc.autoTable({ html: '#downloadTemplateToPDF', headStyles:{fillColor : [81,36,122]}, theme: 'grid'});
         setTimeout(function(){
-            doc.save('Template.pdf');
-        },2000);*/
-    });   
+            WinPrint.focus();
+            WinPrint.print();
+            WinPrint.close();
+           // doc.save('Template.pdf');
+        },1500);   
+    }); 
+    $('#duration5').durationPicker({
+      showDays: false,
+      showSeconds: false
+      /*onChanged: function (newVal) {
+        $('#duration-label5').text(newVal);
+      }*/
+    });  
     </script>
+     <script>
+        $('#specificMaterialsTextArea').summernote({
+          placeholder: 'Insert your specified materials here as a comma seperated list or use the rich text editor to format materials as needed.',
+          tabsize: 2,
+          height: 120,
+          toolbar: [
+            ['font', ['bold', 'underline', 'clear']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['insert', ['link']],
+            ['view', ['help']]
+          ]
+        });
+        
+      </script>
 </body>
 
 </html>

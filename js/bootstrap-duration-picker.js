@@ -30,8 +30,8 @@
         class: 'bdp-input',
         html: [
           buildDisplayBlock('days', !plugin.settings.showDays),
-          buildDisplayBlock('hours', false, plugin.settings.showDays ? 23 : 99999),
-          buildDisplayBlock('minutes', false, 59),
+          buildDisplayBlock('hours', false, plugin.settings.showDays ? 1 : 3),
+          buildDisplayBlock('minutes', false, 55, 5),
           buildDisplayBlock('seconds', !plugin.settings.showSeconds, 59),
         ],
       });
@@ -95,17 +95,22 @@
       updateUI();
     }
 
-    function buildDisplayBlock(id, hidden, max) {
+    function buildDisplayBlock(id, hidden, max, step) {
       const input = $('<input>', {
         class: 'form-control input-sm',
         type: 'number',
         min: 0,
-        value: 0,
         disabled,
       }).change(durationPickerChanged);
 
       if (max) {
         input.attr('max', max);
+      }
+      if (step){
+        input.attr('step', step)
+      }
+      if (id){
+        input.attr('id', id)
       }
       inputs[id] = input;
 
@@ -116,7 +121,7 @@
       labels[id] = label;
 
       return $('<div>', {
-        class: `bdp-block ${hidden ? 'hidden' : ''}`,
+        class: `bdp-block${hidden ? ' d-none' : ''}`,
         html: [input, label],
       });
     }
