@@ -77,6 +77,7 @@ window.addEventListener("load", function () {
     let currentYear = currentDate.getFullYear();
     let durationSelect = document.getElementById('durationPicker');
     var examTypeEISSpan = $('span.examTypeEIS')
+    var examDateAndTimeSpan = $('span.examDateAndTime');
 
     //Listens for the teaching period selector and adds text to relative templates based on selection 
     teachingPeriodSelect.addEventListener("click", function () {
@@ -214,17 +215,19 @@ window.addEventListener("load", function () {
     $("body").change(function () {
         var invOrNonInvSelectors = document.querySelector('input[name="invigilation"]:checked').value;
         var onOrOffCampusSelectors = document.querySelector('input[name="onOrOff"]:checked').value;
+        var startDate = moment(linked1.viewDate).format("LLL");
+        var endTime = moment(linked2.viewDate).format("LT");
         // var browserTypeSelectors = document.querySelector('input[name="browserType"]:checked').value;
         var selectedDate = linked1.viewDate;
         if (courseCodeInputBox.value != "" && courseTitleInputBox.value != "" && nameInputBox.value != "" && bbAssessmentAreaLinkInputBox !="" && selectedDate != "") {
-            $("#copyTemplateBtn, #templateHR, #templatePackageTextVideo, #ecpSuggestedTextCard, #initialBBCommsTextCard, #weblinkToInsperaTextCard, #weblinkToOnCampusInvigilatedExamsTextCard, #aeaAndSEBPracticeTextCard, #aeaPromptOnlyExamTextCard").removeClass("d-none");
+            $("#copyTemplateBtn, #templateHR, #templatePackageTextVideo, #ecpSuggestedTextCard, #initialBBCommsTextCard, #weblinkToInsperaTextCard, #weblinkToOnCampusInvigilatedExamsTextCard, #aeaAndSEBPracticeTextCard, #aeaPromptOnlyExamTextCard, #examInformationSheet").removeClass("d-none");
             setTimeout(function () {
-                $("#copyTemplateBtn, #templateHR, #templatePackageTextVideo, #ecpSuggestedTextCard, #initialBBCommsTextCard, #weblinkToInsperaTextCard, #weblinkToOnCampusInvigilatedExamsTextCard, #aeaAndSEBPracticeTextCard, #aeaPromptOnlyExamTextCard").addClass("show");
+                $("#copyTemplateBtn, #templateHR, #templatePackageTextVideo, #ecpSuggestedTextCard, #initialBBCommsTextCard, #weblinkToInsperaTextCard, #weblinkToOnCampusInvigilatedExamsTextCard, #aeaAndSEBPracticeTextCard, #aeaPromptOnlyExamTextCard, #examInformationSheet").addClass("show");
             }, 100);
         } else {
-            $("#copyTemplateBtn, #templateHR, #templatePackageTextVideo, #ecpSuggestedTextCard, #initialBBCommsTextCard, #weblinkToInsperaTextCard, #weblinkToOnCampusInvigilatedExamsTextCard, #aeaAndSEBPracticeTextCard, #aeaPromptOnlyExamTextCard").removeClass("show");
+            $("#copyTemplateBtn, #templateHR, #templatePackageTextVideo, #ecpSuggestedTextCard, #initialBBCommsTextCard, #weblinkToInsperaTextCard, #weblinkToOnCampusInvigilatedExamsTextCard, #aeaAndSEBPracticeTextCard, #aeaPromptOnlyExamTextCard, #examInformationSheet").removeClass("show");
             setTimeout(function () {
-                $("#copyTemplateBtn, #templateHR, #templatePackageTextVideo, #ecpSuggestedTextCard, #initialBBCommsTextCard, #weblinkToInsperaTextCard, #weblinkToOnCampusInvigilatedExamsTextCard, #aeaAndSEBPracticeTextCard, #aeaPromptOnlyExamTextCard").addClass("d-none");
+                $("#copyTemplateBtn, #templateHR, #templatePackageTextVideo, #ecpSuggestedTextCard, #initialBBCommsTextCard, #weblinkToInsperaTextCard, #weblinkToOnCampusInvigilatedExamsTextCard, #aeaAndSEBPracticeTextCard, #aeaPromptOnlyExamTextCard, #examInformationSheet").addClass("d-none");
             }, 100);
         }
         if (invOrNonInvSelectors == "Invigilated" && onOrOffCampusSelectors == "On-Campus"){
@@ -239,6 +242,7 @@ window.addEventListener("load", function () {
         else if (invOrNonInvSelectors == "Invigilated" && onOrOffCampusSelectors == "Combo"){
             $(examTypeEISSpan).html('Invigilated exam both on-campus for face to face and off campus for our online students')
         }
+        
     });
     //Retrieve time values and calculate 3 days before, 7 days before, and 14 days before the start date
     $("#date1, #date2").click(function () {
@@ -265,6 +269,7 @@ window.addEventListener("load", function () {
             console.log(threeWeeksOut);
             var dateOfAsst = document.getElementById("dateSelected1");
             //  dateOfAsst.innerText = startDate + '-' + endTime
+            $(examDateAndTimeSpan).html(startDate + " - " + endTime);
         });
     });
    durationSelect.addEventListener("click", function getDuration(){

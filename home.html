@@ -178,158 +178,7 @@
         <p>Paste the URL for the Assessment Area in your Blackboard course.</p>
         <p><input class="rounded p-2 w-75" rows="1" name="bbAssessmentAreaLink" type="text" id="bbAssessmentAreaLink" placeholder="Paste your course assessment area link here"></p>
         <hr class="ifExamSelected fade d-none" />
-        <button class="btn btn-primary mb-3" id="convertTemplateButton">Create PDF</button>
-        <div id="downloadTemplateToPDF">
-        <style>
-            @media print {
-                table{
-                    width:100%;
-        }
-        table, th, td{
-            border: 1px solid black;
-            border-collapse: collapse;
-        }
-        th, td {
-            padding: 5px;
-        }
-        .button-3 {
-            -moz-border-radius: 2px;
-            -webkit-border-radius: 2px;
-            border-radius: 2px;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            border-style: solid;
-            border-width: 0;
-            cursor: pointer;
-            font-family: "Open Sans", Arial, sans-serif;
-            font-weight: 400;
-            padding: 3px 8px;
-            -webkit-border-radius: 2px;
-            -moz-border-radius: 2px;
-            border-radius: 2px;
-            position: relative;
-            border: 0;
-            display: inline-block;
-            position: relative;
-            text-align: center;
-            text-decoration: none;
-            padding: .5625rem 1.125rem .625rem;
-            font-size: .875rem;
-            color: #333;
-            background-color: #dadada;
-            box-shadow: inset 0 0 0 2px #dadada;
-            border-radius: 2px;
-            transition: -webkit-transform 100ms, background-color 250ms, color 250ms, box-shadow 250ms, opacity 250ms;
-            transition: transform 100ms, background-color 250ms, color 250ms, box-shadow 250ms, opacity 250ms;
-            line-height: 1.4;
-            background-image: none;
-            margin: 0px;
-        }
-        thead{
-            color:white;
-            background-color:#51247a !important;
-            -webkit-print-color-adjust: exact; 
-            font: 1.5rem;
-        }
-            }
-        table{
-            width:100%;
-        }    
-        table, th, td{
-            border: 1px solid black;
-            border-collapse: collapse;
-        }
-        th, td {
-            padding: 5px;
-        }
-        </style>
-        <script src="https://kit.fontawesome.com/3ec1dca8cc.js" crossorigin="anonymous"></script>
-        <table id="onCampusInvigilatedInformationSheet" class="downloadTemplateToPDF">
-            <thead style="color:white;background:#51247a">
-                <tr>
-                    <th colspan="2" style="font-size:1.5rem;">Exam information</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Course code and title</td>
-                    <td><span class="courseCodeOutput"></span> - <span class="courseTitleOutput"></span></td>
-                </tr>
-                <tr>
-                    <td>Semester</td>
-                    <td><span class="teachingPeriodSelected"></span>, <span class="currentYear"></span></td>
-                </tr>
-                <tr>
-                    <td>Exam type</td>
-                    <td><span class="examTypeEIS"></span></td>
-                </tr>
-                <tr>
-                    <td>Exam technology</td>
-                    <td><p>The exam will be completed in Inspera Assessment using <strong>Safe Exam Browser (SEB)</strong>.</p>
-                        <p>Please ensure that you have already downloaded Safe Exam Browser (SEB) to your computer by clicking the relative button below to download the Inspera SEB version for your device if you do not already have it downloaded and installed. When clicking on these buttons a new browser tab will open briefly before the download begins or you are prompted where you would like to save the download depending on your browser settings</p>
-                        <p>Click to download SEB for your operating system:</p>
-                            <a href="https://static.inspera.com/getsebwin" title="Download Inspera SEB for Windows" class="button-3" style="text-decoration: none;" target="_blank"><i class="fa fa-brands fa-windows"></i> Windows</a>
-                            <a href="https://static.inspera.com/getsebmac" title="Download Inspera SEB for macOS" class="button-3" style="text-decoration: none;" target="_blank"><i class="fa fa-brands fa-apple"></i> macOS</a></p>
-                        <p>On exam day you will access your exam via <span class="examAccessType"></span>. The Exam Invigilator will then direct you when to launch the exam in Safe Exam Browser, and when to commence your exam.</p>
-                        </td>
-                </tr>
-                <tr>
-                    <td>Exam date and time</td>
-                    <td><span class="examDateAndTime"></span></td>
-                </tr>
-                <tr>
-                    <td>Exam duration</td>
-                    <td><p>Your invigilator will provide you with a Safe Exam Browser password on exam day. You will need to enter this password to commence the exam when the invigilator indicates it is time to do so.</p>
-                    <p>The exam duration will be made up of <strong><span class="examWorkingTime"></span> working time</strong> plus <strong>10 mins planning time</strong></p>
-                    <p>The <strong>TOTAL exam duration</strong> is <span class="examTotalDuration"></span>. You are permitted to commence the exam during planning time.</p>
-                    <p><strong>Please note: You will not be able to access the examination after this time.</strong></p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Submission details</td>
-                    <td><p>The exam will only be available in Inspera Assessment for the duration of your exam. You will not be permitted to click START until directed to do so by your Exam Invigilator.</p>
-                        <p>You will submit your exam by clicking <strong>Submit Now</strong>. Once you have clicked <strong>Submit Now</strong> you will not be able to access the exam. So do not click submit until you are sure you do not want to make any further changes.</p>
-                        <p>Your exam will automatically submit once the exam window has closed or your duration has expired. You will not be able to access the exam after this time.</p></td>
-                </tr>
-                <tr>
-                    <td>Permitted materials</td>
-                    <td><p><span class="calculatorSelection"></span></p>
-                        <p class="d-none" id="recommendedMaterialsListBelow">Please also see the recommended materials section below for a list of materials allowed in the exam.</p>
-                        </td>
-                </tr>
-                <tr class="d-none" id="recommendedMaterialsRow">
-                    <td>Recommended materials</td>
-                    <td><p>Ensure the following materials are available at the exam</p>
-                    <p><span class="specificMaterialsForExam"></span></p></td>
-                </tr>
-                <tr>
-                    <td>Instructions</td>
-                    <td><p>Answer all questions in Inspera.</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Who to contact</td>
-                    <td><p>Given the nature of this examination, responding to student queries and/or relaying corrections to exam content during the exam is not feasible.</p>
-                        <p>Therefore, at the end of the exam there will be a free text question box. Please use this to specify any assumptions you have made or queries you had in completing the exam and which questions those assumptions or queries relate to.</p>
-                        <p>If you experience any technical difficulties or are prompted for an Invigilator Password, please raise your hand and an invigilator will assist you.</p>
-                        </td>
-                </tr>
-                <tr>
-                    <td>Important exam condition information</td>
-                    <td><p>Academic integrity is a core value of the UQ community and as such high academic integrity expectations apply to all examinations, whether undertaken face-to-face or online.</p>
-                        <p>This means:</p>
-                        <ul>
-                            <li class="importantExamConditionInfo"></li>
-                            <li>You are not permitted to consult any other person – whether directly, online, or through any other means – about any aspect of this examination during the period that it is available.</li>
-                            <li>If it is found that you have given or sought outside assistance with this examination, then that will be deemed to be cheating.</li>
-                        </ul>
-                        <p>Undertaking this online examination deems your commitment to UQ’s academic integrity pledge as summarised in the following declaration:</p>
-                        <p><em>“I certify that I have completed this examination in an honest, fair and trustworthy manner, that my submitted answers are entirely my own work, and that I have neither given nor received any unauthorised assistance on this examination”.</em></p>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+        
         <!--Options that are revealed if exam is selected-->
         <div class="ifExamSelected fade d-none">
             <div id="teachingPeriod">
@@ -622,13 +471,174 @@
                     </div>
                 </div>
             </div>
+            <div class="col d-none" id="examInformationSheet">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Exam Information Sheet</h5>
+                        <p class="card-text">This is your exam information sheet for your exam that you can post to students as either a HTML Table or as a PDF. Click preview to check over your information sheet and then choose your option.</p>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#examInformationSheetTemplate">Preview exam information sheet</button>
+                    </div>
+                </div>
+            </div>
         </div>
         <!--Inspera non-invigilated exam information sheet-->
-        <div class="modal fade" id="insperaNonInvigilatedExamInfoSheet" tabindex="-1" role="dialog" aria-labelledby="insperaNonInvigilatedExamInfoSheet" aria-hidden="true">
+        <div class="modal fade" id="examInformationSheetTemplate" tabindex="-1" role="dialog" aria-labelledby="examInformationSheetTemplate" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-body">
-                       
+                        <button class="btn btn-primary btn-sm mb-3" id="convertTemplateButton">Create PDF</button>
+                        <a class="text-white btn btn-sm btn-primary rounded text-white copybutton d-none mb-3" id="copyTemplateBtn">Copy Template HTML</a>
+                        <div id="downloadTemplateToPDF">
+                        <style>
+                            @media print {
+                                table{
+                                    width:100%;
+                        }
+                        table, th, td{
+                            border: 1px solid black;
+                            border-collapse: collapse;
+                        }
+                        th, td {
+                            padding: 5px;
+                        }
+                        .button-3 {
+                            -moz-border-radius: 2px;
+                            -webkit-border-radius: 2px;
+                            border-radius: 2px;
+                            -webkit-appearance: none;
+                            -moz-appearance: none;
+                            border-style: solid;
+                            border-width: 0;
+                            cursor: pointer;
+                            font-family: "Open Sans", Arial, sans-serif;
+                            font-weight: 400;
+                            padding: 3px 8px;
+                            -webkit-border-radius: 2px;
+                            -moz-border-radius: 2px;
+                            border-radius: 2px;
+                            position: relative;
+                            border: 0;
+                            display: inline-block;
+                            position: relative;
+                            text-align: center;
+                            text-decoration: none;
+                            padding: .5625rem 1.125rem .625rem;
+                            font-size: .875rem;
+                            color: #333;
+                            background-color: #dadada;
+                            box-shadow: inset 0 0 0 2px #dadada;
+                            border-radius: 2px;
+                            transition: -webkit-transform 100ms, background-color 250ms, color 250ms, box-shadow 250ms, opacity 250ms;
+                            transition: transform 100ms, background-color 250ms, color 250ms, box-shadow 250ms, opacity 250ms;
+                            line-height: 1.4;
+                            background-image: none;
+                            margin: 0px;
+                        }
+                        thead{
+                            color:white;
+                            background-color:#51247a !important;
+                            -webkit-print-color-adjust: exact; 
+                            font: 1.5rem;
+                        }
+                            }
+                        table{
+                            width:100%;
+                        }    
+                        table, th, td{
+                            border: 1px solid black;
+                            border-collapse: collapse;
+                        }
+                        th, td {
+                            padding: 5px;
+                        }
+                        </style>
+                        <script src="https://kit.fontawesome.com/3ec1dca8cc.js" crossorigin="anonymous"></script>
+                        <table id="onCampusInvigilatedInformationSheet" class="downloadTemplateToPDF">
+                            <thead style="color:white;background:#51247a">
+                                <tr>
+                                    <th colspan="2" style="font-size:1.5rem;">Exam information</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Course code and title</td>
+                                    <td><span class="courseCodeOutput"></span> - <span class="courseTitleOutput"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>Semester</td>
+                                    <td><span class="teachingPeriodSelected"></span>, <span class="currentYear"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>Exam type</td>
+                                    <td><span class="examTypeEIS"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>Exam technology</td>
+                                    <td><p>The exam will be completed in Inspera Assessment using <strong>Safe Exam Browser (SEB)</strong>.</p>
+                                        <p>Please ensure that you have already downloaded Safe Exam Browser (SEB) to your computer by clicking the relative button below to download the Inspera SEB version for your device if you do not already have it downloaded and installed. When clicking on these buttons a new browser tab will open briefly before the download begins or you are prompted where you would like to save the download depending on your browser settings</p>
+                                        <p>Click to download SEB for your operating system:</p>
+                                            <a href="https://static.inspera.com/getsebwin" title="Download Inspera SEB for Windows" class="button-3" style="text-decoration: none;" target="_blank"><img src="https://uqea.github.io/bbcomms/img/windows-brands.png" width="18px" height="auto"> Windows</a>
+                                            <a href="https://static.inspera.com/getsebmac" title="Download Inspera SEB for macOS" class="button-3" style="text-decoration: none;" target="_blank"><img src="https://uqea.github.io/bbcomms/img/apple-brands.png" width="18px" height="auto"> macOS</a></p>
+                                        <p>On exam day you will access your exam via <span class="examAccessType"></span>. The Exam Invigilator will then direct you when to launch the exam in Safe Exam Browser, and when to commence your exam.</p>
+                                        </td>
+                                </tr>
+                                <tr>
+                                    <td>Exam date and time</td>
+                                    <td><span class="examDateAndTime"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>Exam duration</td>
+                                    <td><p>Your invigilator will provide you with a Safe Exam Browser password on exam day. You will need to enter this password to commence the exam when the invigilator indicates it is time to do so.</p>
+                                    <p>The exam duration will be made up of <strong><span class="examWorkingTime"></span> working time</strong> plus <strong>10 mins planning time</strong></p>
+                                    <p>The <strong>TOTAL exam duration</strong> is <span class="examTotalDuration"></span>. You are permitted to commence the exam during planning time.</p>
+                                    <p><strong>Please note: You will not be able to access the examination after this time.</strong></p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Submission details</td>
+                                    <td><p>The exam will only be available in Inspera Assessment for the duration of your exam. You will not be permitted to click START until directed to do so by your Exam Invigilator.</p>
+                                        <p>You will submit your exam by clicking <strong>Submit Now</strong>. Once you have clicked <strong>Submit Now</strong> you will not be able to access the exam. So do not click submit until you are sure you do not want to make any further changes.</p>
+                                        <p>Your exam will automatically submit once the exam window has closed or your duration has expired. You will not be able to access the exam after this time.</p></td>
+                                </tr>
+                                <tr>
+                                    <td>Permitted materials</td>
+                                    <td><p><span class="calculatorSelection"></span></p>
+                                        <p class="d-none" id="recommendedMaterialsListBelow">Please also see the recommended materials section below for a list of materials allowed in the exam.</p>
+                                        </td>
+                                </tr>
+                                <tr class="d-none" id="recommendedMaterialsRow">
+                                    <td>Recommended materials</td>
+                                    <td><p>Ensure the following materials are available at the exam</p>
+                                    <p><span class="specificMaterialsForExam"></span></p></td>
+                                </tr>
+                                <tr>
+                                    <td>Instructions</td>
+                                    <td><p>Answer all questions in Inspera.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Who to contact</td>
+                                    <td><p>Given the nature of this examination, responding to student queries and/or relaying corrections to exam content during the exam is not feasible.</p>
+                                        <p>Therefore, at the end of the exam there will be a free text question box. Please use this to specify any assumptions you have made or queries you had in completing the exam and which questions those assumptions or queries relate to.</p>
+                                        <p>If you experience any technical difficulties or are prompted for an Invigilator Password, please raise your hand and an invigilator will assist you.</p>
+                                        </td>
+                                </tr>
+                                <tr>
+                                    <td>Important exam condition information</td>
+                                    <td><p>Academic integrity is a core value of the UQ community and as such high academic integrity expectations apply to all examinations, whether undertaken face-to-face or online.</p>
+                                        <p>This means:</p>
+                                        <ul>
+                                            <li class="importantExamConditionInfo"></li>
+                                            <li>You are not permitted to consult any other person – whether directly, online, or through any other means – about any aspect of this examination during the period that it is available.</li>
+                                            <li>If it is found that you have given or sought outside assistance with this examination, then that will be deemed to be cheating.</li>
+                                        </ul>
+                                        <p>Undertaking this online examination deems your commitment to UQ’s academic integrity pledge as summarised in the following declaration:</p>
+                                        <p><em>“I certify that I have completed this examination in an honest, fair and trustworthy manner, that my submitted answers are entirely my own work, and that I have neither given nor received any unauthorised assistance on this examination”.</em></p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                         </div>
                     </div>
                 </div>
@@ -746,8 +756,8 @@
                             <h6>Download Safe Exam Browser (SEB)</h6>
                             <p>Click the relative button below to download the Inspera SEB version for your device if you do not already have it downloaded and installed. When clicking on these buttons a new tab will open briefly before the download begins or you are prompted where you would like to save the download depending on your device settings.</p>
                             <p>
-                                <a href="https://static.inspera.com/getsebwin" title="Download Inspera SEB for Windows" class="button-3" style="text-decoration: none; margin:0px 10px;" target="_blank"><i class="fa fa-brands fa-windows"></i> Windows</a>
-                                <a href="https://static.inspera.com/getsebmac" title="Download Inspera SEB for macOS" class="button-3" style="text-decoration: none;" target="_blank"><i class="fa fa-brands fa-apple"></i> macOS</a>
+                                <a href="https://static.inspera.com/getsebwin" title="Download Inspera SEB for Windows" class="button-3" style="text-decoration: none;" target="_blank"><img src="https://uqea.github.io/bbcomms/img/windows-brands.png" width="18px" height="auto"> Windows</a>
+                                <a href="https://static.inspera.com/getsebmac" title="Download Inspera SEB for macOS" class="button-3" style="text-decoration: none;" target="_blank"><img src="https://uqea.github.io/bbcomms/img/apple-brands.png" width="18px" height="auto"> macOS</a>
                             </p>
                             <h6>Complete the Inspera Safe Exam Browser Preparation</h6>
                             <ol>
@@ -819,20 +829,17 @@
             }
         });
         var printTemplate = document.getElementById('convertTemplateButton');
-        var tableTemplate = document.getElementById('downloadTemplateToPDF').innerHTML;
         printTemplate.addEventListener("click", function () {
-        console.log('function running');
-       // var prtContent = document.getElementById("your div id");
-        var WinPrint = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
-        WinPrint.document.write(tableTemplate);
-        WinPrint.document.close();
-        setTimeout(function(){
-            WinPrint.focus();
-            WinPrint.print();
-            WinPrint.close();
-           // doc.save('Template.pdf');
-        },1500);   
-    }); 
+            var tableTemplate = document.getElementById('downloadTemplateToPDF').innerHTML;
+            var WinPrint = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
+            WinPrint.document.write(tableTemplate);
+            WinPrint.document.close();
+            setTimeout(function(){
+                WinPrint.focus();
+                WinPrint.print();
+                WinPrint.close();
+            },1500);   
+        }); 
     $('#duration5').durationPicker({
       showDays: false,
       showSeconds: false
