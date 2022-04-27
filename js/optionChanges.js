@@ -215,8 +215,12 @@ window.addEventListener("load", function () {
     $("body").change(function () {
         var invOrNonInvSelectors = document.querySelector('input[name="invigilation"]:checked').value;
         var onOrOffCampusSelectors = document.querySelector('input[name="onOrOff"]:checked').value;
-        var startDate = moment(linked1.viewDate).format("LLL");
-        var endTime = moment(linked2.viewDate).format("LT");
+        var examDateOverride = document.querySelector('input[name="examPeriodOverride"]:checked').value;
+        if(examDateOverride == "examPeriodOverride"){
+            $(examDateAndTimeSpan).html("Refer to your personal exam timetable for the scheduled date and time of this exam.");
+        }
+        else{getDateAndTime()
+        }
         // var browserTypeSelectors = document.querySelector('input[name="browserType"]:checked').value;
         var selectedDate = linked1.viewDate;
         if (courseCodeInputBox.value != "" && courseTitleInputBox.value != "" && nameInputBox.value != "" && bbAssessmentAreaLinkInputBox !="" && selectedDate != "") {
@@ -245,7 +249,8 @@ window.addEventListener("load", function () {
         
     });
     //Retrieve time values and calculate 3 days before, 7 days before, and 14 days before the start date
-    $("#date1, #date2").click(function () {
+    
+    $("#date1, #date2").click(function getDateAndTime() {
         $(".td-half").click(function () {
             var startDate = moment(linked1.viewDate).format("LLL");
             console.log(startDate);
