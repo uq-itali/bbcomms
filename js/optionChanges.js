@@ -64,7 +64,7 @@ window.addEventListener("load", function () {
     let teachingPeriodSelect = document.getElementById("teachingPeriod");
     let teachingPeriodSelectedSpan = $("span.teachingPeriodSelected");
     let ltiSelect = document.getElementById("examAccessSelect");
-    let ltiSelectedSpan = $("span.examAccessSelected");
+    let ltiSelectedSpan = $("span.examAccessType");
     let schoolOrCentralSelect = document.getElementById("schoolOrCentral");
     let schoolOrCentralSelectedSpan = $("span.schoolOrCentralSelected");
     let onOrOffCampusSelect = document.getElementById("onOrOffCampus");
@@ -111,7 +111,7 @@ window.addEventListener("load", function () {
     });
     //Listens for the school or centrally run selector and adds text to relative templates based on selection
     ltiSelect.addEventListener("click", function () {
-        var ltiSelectors = document.querySelector('input[name="ltiAccess"]:checked').value;
+        var ltiSelectors = document.querySelector('input[name="examAccessType"]:checked').value;
         switch (ltiSelectors) {
             case "ltiAccess":
                 ltiSelectedSpan.html("via a link in Blackboard");
