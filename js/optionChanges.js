@@ -193,7 +193,7 @@ window.addEventListener("load", function () {
         }
     );
     locationInputBox.addEventListener("input",function getExamLocation() {
-        $(".examLocation").text(locationInputBox.value);
+        $(".examLocation").html("<strong>Location:</strong>" + " " + locationInputBox.value);
     }
 );
     //Reveal all parameters relating to exams that are hidden until the exam assessment type is selected
