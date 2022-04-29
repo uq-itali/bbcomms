@@ -181,7 +181,7 @@
         <p><input class="rounded p-2 w-75" rows="1" name="bbAssessmentAreaLink" type="text" id="bbAssessmentAreaLink" placeholder="Paste your course assessment area link here"></p>
         <hr />
         <h5 class="mt-3">Assessment one due date and time</h5>
-        <div class='col-2 my-auto'>
+        <div class='col-6 my-auto mb-3'>
             <label for='assessmentOneDueDate' class='form-label'>Choose your assessment due date and time</label>
             <div class='input-group log-event' id='assessmentOneDueDate' data-td-target-input='nearest' data-td-target-toggle='nearest'>
                 <input id='assessmentOneDueDate' type='text' class='form-control' data-td-target='#assessmentOneDueDate' placeholder="Choose due date and time" />
@@ -329,7 +329,7 @@
             <h5 class="mt-3">Date, Time and Duration of Exam</h5>
             <p>Please select the date your assessment is due or the date of your exam. This will then calculate the dates you should be posting communications to students in Blackboard. <strong>If your assessment is in the exam period</strong>, please select the checkbox to the right.</p>
             <div class='row' id="dateSelector1">
-                <div class='col-2 my-auto'>
+                <div class='col-3 my-auto'>
                     <label for='date1Input' class='form-label'>From</label>
                     <div class='input-group log-event' id='date1' data-td-target-input='nearest' data-td-target-toggle='nearest'>
                         <input id='date1Input' type='text' class='form-control' data-td-target='#date1' placeholder="Choose start date and time" />
@@ -338,7 +338,7 @@
                         </span>
                     </div>
                 </div>
-                <div class='col-2 my-auto'>
+                <div class='col-3 my-auto'>
                     <label for='date2Input' class='form-label'>To</label>
                     <div class='input-group log-event' id='date2' data-td-target-input='nearest' data-td-target-toggle='nearest'>
                         <input id='date2Input' type='text' class='form-control' data-td-target='#date2' placeholder="Choose end date and time" />
@@ -347,14 +347,14 @@
                         </span>
                     </div>
                 </div>
-                <div class="col-2 my-auto border border-danger border-2 p-2 text-center rounded">
+                <div class="col-3 my-auto border border-danger border-2 p-2 text-center rounded">
                     <h5 class="text-danger fw-bold">OR</h5>
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="examPeriodOverride" id="examPeriodOverride" name="examPeriodOverride">
                         <label class="form-check-label" for="examPeriodOverride">My exam will run in the central exam period/students should check their personal timetable for the exam details.</label>
                     </div>
                 </div>
-            <div class="col-2 my-auto text-center">
+            <div class="col-3 my-auto text-center">
                 <div id="durationPicker">
             <form>
                 <div class="form-group">
@@ -828,22 +828,41 @@
     </div>
     <!--Script that presents date and time selector plus carries out print function for exam information sheets-->
     <script>
+        var todaysDate = new Date();
         const linked1 = new tempusDominus.TempusDominus(document.getElementById('date1'), {
+            restrictions:{
+                minDate: todaysDate
+            },
             useCurrent: false,
             display: {
                 sideBySide: true,
+                components:{
+                useTwentyfourHour: true,
             }
+        }
         });
         const linked2 = new tempusDominus.TempusDominus(document.getElementById('date2'), {
+            restrictions:{
+                minDate: todaysDate
+            },
             useCurrent: false,
             display: {
                 sideBySide: true,
+                components:{
+                useTwentyfourHour: true,
+            }
             }
         });
         const assessmentOneDueDate = new tempusDominus.TempusDominus(document.getElementById('assessmentOneDueDate'), {
+            restrictions:{
+                minDate: todaysDate
+            },
             useCurrent: false,
             display: {
                 sideBySide: true,
+                components:{
+                useTwentyfourHour: true,
+            }
             }
         });
         var printTemplate = document.getElementById('convertTemplateButton');
