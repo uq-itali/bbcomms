@@ -77,7 +77,7 @@
                     this.setMinutes(0, 0, 0);
                     break;
                 case 'date':
-                    this.setHours(0, 0, 0, 0);
+                    this.setHours(1, 12, 0, 0);
                     break;
                 case 'weekDay':
                     this.startOf(exports.Unit.date);
