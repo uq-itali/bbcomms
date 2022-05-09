@@ -219,7 +219,7 @@ window.addEventListener("load", function () {
         if(examDateOverride == "examPeriodOverride"){
             $(examDateAndTimeSpan).html("Refer to your personal exam timetable for the scheduled date and time of this exam.");
         }
-        else{getDateAndTime()
+        else{
         }
         // var browserTypeSelectors = document.querySelector('input[name="browserType"]:checked').value;
         var selectedDate = linked1.viewDate;
