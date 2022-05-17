@@ -215,12 +215,7 @@ window.addEventListener("load", function () {
     $("body").change(function () {
         var invOrNonInvSelectors = document.querySelector('input[name="invigilation"]:checked').value;
         var onOrOffCampusSelectors = document.querySelector('input[name="onOrOff"]:checked').value;
-        var examDateOverride = document.querySelector('input[name="examPeriodOverride"]:checked').value;
-        if(examDateOverride == "examPeriodOverride"){
-            $(examDateAndTimeSpan).html("Refer to your personal exam timetable for the scheduled date and time of this exam.");
-        }
-        else{
-        }
+        
         // var browserTypeSelectors = document.querySelector('input[name="browserType"]:checked').value;
         var selectedDate = linked1.viewDate;
         if (courseCodeInputBox.value != "" && courseTitleInputBox.value != "" && nameInputBox.value != "" && bbAssessmentAreaLinkInputBox !="" && selectedDate != "") {
